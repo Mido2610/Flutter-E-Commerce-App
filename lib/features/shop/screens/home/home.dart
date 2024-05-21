@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:waflo_admin/common/widgets/products/products_card/product_card_vertical.dart';
+import 'package:waflo_admin/features/shop/screens/all_products/all_products.dart';
 import 'package:waflo_admin/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:waflo_admin/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:waflo_admin/features/shop/screens/home/widgets/promo_slider.dart';
@@ -70,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: TSizes.spaceBtwSections),
 
                   // Heading
-                  const SectionHeadingBar(title: 'Popular Products'),
+                  SectionHeadingBar(title: 'Popular Products', onPressed: () => Get.to(() => const AllProducts())),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
                   // Popular Products
