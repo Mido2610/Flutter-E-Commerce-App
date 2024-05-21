@@ -5,6 +5,7 @@ import 'package:waflo_admin/utils/theme/custom_themes/outlined_button_theme.dart
 import 'package:waflo_admin/utils/theme/custom_themes/text_field_theme.dart';
 
 import 'custom_themes/appbar_theme.dart';
+import 'custom_themes/chip_theme.dart';
 import 'custom_themes/elevated_buttons_theme.dart';
 import 'custom_themes/text_theme.dart';
 
@@ -17,6 +18,7 @@ class TAppTheme {
     brightness: Brightness.light,
     primaryColor: Colors.blue,
     textTheme: TTextTheme.lightTextTheme,
+    chipTheme: TChipTheme.lightChipTheme,
     elevatedButtonTheme: TElevatedButtonsTheme.lightElevatetdButtonTheme,
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: TAppBarTheme.lightAppBarTheme,
@@ -31,6 +33,7 @@ class TAppTheme {
     brightness: Brightness.dark,
     primaryColor: Colors.blue,
     textTheme: TTextTheme.darkTextTheme,
+    chipTheme: TChipTheme.darkChipTheme,
     elevatedButtonTheme: TElevatedButtonsTheme.darkElevatetdButtonTheme,
     scaffoldBackgroundColor: Colors.black,
     appBarTheme: TAppBarTheme.darkAppBarTheme,

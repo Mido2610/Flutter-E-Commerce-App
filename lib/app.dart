@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:waflo_admin/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:waflo_admin/utils/theme/theme.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -8,8 +9,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       themeMode: ThemeMode.system,
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
+      theme: TAppTheme.lightTheme,
+      darkTheme: TAppTheme.darkTheme,
       home: const OnBoardingScreen(),
       debugShowCheckedModeBanner: false,
     );

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart%20';
+import 'package:get/get.dart';
 
 import '../../../../../common/widgets/image_text_widgets/vertical_image_text.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/images_strings.dart';
+import '../../sub_category/sub_categories.dart';
 
 class HomeCategories extends StatelessWidget {
   const HomeCategories({
@@ -21,7 +23,7 @@ class HomeCategories extends StatelessWidget {
             return VerticalImageText(
               image: TImages.shoesIcon,
               title: 'Shoes',
-              onTap: () {},
+              onTap: () => Get.to(() => const SubCategoriesScreen()),
               backgroundColor: TColors.white,
             );
           }),

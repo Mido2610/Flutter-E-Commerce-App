@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:waflo_admin/common/widgets/appbar/appbar.dart';
 import 'package:waflo_admin/common/widgets/images/circular_image.dart';
 import 'package:waflo_admin/common/widgets/texts/section_heading.dart';
@@ -14,7 +13,7 @@ class ProfileSettingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: TAppBar(
+      appBar: const TAppBar(
         showBackArrow: true,
         title: Text('Profile Setting'),
       ),
@@ -22,7 +21,7 @@ class ProfileSettingScreen extends StatelessWidget {
       //Body
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(TSizes.defaultSpace),
+          padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             children: [
               // Profile Picture
@@ -61,7 +60,7 @@ class ProfileSettingScreen extends StatelessWidget {
               ProfileSettingMenu(title: 'Gender', value: 'Male', onPressed: () {}),
               ProfileSettingMenu(title: 'Date of Birth', value: '26 Oct 2002', onPressed: () {}),
               const Divider(),
-              const SizedBox(height: TSizes.spaceBtwItems),
+              const SizedBox(height: TSizes.spaceBtwItems), 
 
 
               Center(
@@ -79,5 +78,3 @@ class ProfileSettingScreen extends StatelessWidget {
     );
   }
 }
-
-

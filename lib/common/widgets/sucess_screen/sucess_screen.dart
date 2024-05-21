@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/constants/text_strings.dart';
 import '../../../utils/helpers/helper_functions.dart';
@@ -46,11 +47,15 @@ class SucessSreen extends StatelessWidget {
             ),
 
             // Buttons
+            const SizedBox(height: TSizes.spaceBtwSections),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: onPressed,
                 child: const Text(TTexts.tContinue),
+                style: ElevatedButton.styleFrom(
+                  primary: TColors.primary,
+                ),
               ),
             )
           ]),

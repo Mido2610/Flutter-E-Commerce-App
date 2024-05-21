@@ -13,23 +13,24 @@ class CircularIcon extends StatelessWidget {
     required this.icon,
     this.color,
     this.backgroundColor,
-    required this.onPressed,
+    this.onPressed,
   }) : super(key: key);
   final double? width, height, size;
   final IconData icon;
   final Color? color;
   final Color? backgroundColor;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
     return Container(
       width: width,
       height: height,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
-        color: dark
+        color: backgroundColor != null
+        ? backgroundColor!
+        : THelperFunctions.isDarkMode(context)
             ? TColors.black.withOpacity(0.9)
             : TColors.white.withOpacity(0.9),
       ),

@@ -4,13 +4,14 @@ import 'package:iconsax/iconsax.dart';
 import 'package:waflo_admin/common/widgets/custome_shapes/containers/primary_header_container.dart';
 import 'package:waflo_admin/common/widgets/list_titles/setting_menu_tile.dart';
 import 'package:waflo_admin/common/widgets/texts/section_heading.dart';
+import 'package:waflo_admin/features/personalization/screens/address/address.dart';
 import 'package:waflo_admin/features/personalization/screens/profile_setting/profile_setting.dart';
-
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/list_titles/user_profile_tile.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../authentication/screens/login/login.dart';
+import '../order/order_screen.dart';
 
 class CreateProfileScreen extends StatelessWidget {
   const CreateProfileScreen({Key? key}) : super(key: key);
@@ -60,7 +61,7 @@ class CreateProfileScreen extends StatelessWidget {
                   icon: Iconsax.safe_home,
                   title: 'My Address',
                   subtitle: 'Set shopping delivery address',
-                  onTap: () {},
+                  onTap: () => Get.to(() => const UserAddressScreen()),
                 ),
                 SettingMenuTile(
                   icon: Iconsax.shopping_cart,
@@ -72,7 +73,7 @@ class CreateProfileScreen extends StatelessWidget {
                   icon: Iconsax.bag_tick,
                   title: 'My Orders',
                   subtitle: 'In-progress and Completed orders',
-                  onTap: () {},
+                  onTap: () => Get.to(() => const OrderScreen()),
                 ),
                 SettingMenuTile(
                   icon: Iconsax.bank,

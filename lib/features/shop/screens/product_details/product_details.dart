@@ -1,15 +1,16 @@
-import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:waflo_admin/common/widgets/appbar/appbar.dart';
-import 'package:waflo_admin/common/widgets/custome_shapes/curved_edges/curved_edges_widget.dart';
-import 'package:waflo_admin/common/widgets/icons/circular_icon.dart';
-import 'package:waflo_admin/common/widgets/images/rounded_image.dart';
-import 'package:waflo_admin/features/shop/screens/product_details/widgets/product_image_slider.dart';
-import 'package:waflo_admin/utils/constants/images_strings.dart';
-import 'package:waflo_admin/utils/helpers/helper_functions.dart';
 
-import '../../../../utils/constants/colors.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:readmore/readmore.dart';
+import 'package:waflo_admin/common/widgets/texts/section_heading.dart';
+import 'package:waflo_admin/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
+import 'package:waflo_admin/features/shop/screens/product_details/widgets/product_attriutes.dart';
+import 'package:waflo_admin/features/shop/screens/product_details/widgets/product_image_slider.dart';
+import 'package:waflo_admin/features/shop/screens/product_details/widgets/product_meta_data.dart';
+import 'package:waflo_admin/features/shop/screens/product_details/widgets/product_rating_share.dart';
 import '../../../../utils/constants/sizes.dart';
+import '../product_review/product_review.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   const ProductDetailScreen({Key? key}) : super(key: key);
@@ -17,6 +18,7 @@ class ProductDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const BottomAddToCart(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -26,8 +28,56 @@ class ProductDetailScreen extends StatelessWidget {
             // Product Details
 
             Padding(
-              padding: const EdgeInsets.all(TSizes.defaultSpace),
-            ),
+                padding: const EdgeInsets.only(
+                    right: TSizes.defaultSpace,
+                    left: TSizes.defaultSpace,
+                    bottom: TSizes.defaultSpace),
+                child: Column(
+                  children: [
+                    // Rating & share button
+                    const RatingAndShare(),
+
+                    //    Price, Title, Stock & Brand
+                    const ProductMetaData(),
+
+                    // Attributes
+                    const ProductAttributes(),
+                    const SizedBox(height: TSizes.spaceBtwSections),
+
+                    // Checkout button
+                    SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                            onPressed: () {}, child: const Text('Checkout'))),
+                    const SizedBox(height: TSizes.spaceBtwSections),
+
+                    // Description
+                    const SectionHeadingBar(
+                        title: 'Description', showActionButton: false),
+                    const SizedBox(height: TSizes.spaceBtwItems),
+                    const ReadMoreText(
+                      'Flutter is Googles mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.',
+                      trimLines: 2,
+                      trimMode: TrimMode.Line,
+                      trimCollapsedText: ' Show more',
+                      trimExpandedText: ' Show less',
+                      moreStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                      lessStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                    ),
+
+                    // Reviews
+                    const Divider(thickness: 2,),
+                    const SizedBox(height: TSizes.spaceBtwItems),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const SectionHeadingBar(title: 'Review(199)', showActionButton: false),
+                        IconButton(icon: const Icon(Iconsax.arrow_right_3, size: 18), onPressed: ()=> Get.to(() => const ProductReviewScreen())),
+                      ],
+                    ),
+                    const SizedBox(height: TSizes.spaceBtwSections),
+                  ],
+                )),
           ],
         ),
       ),
