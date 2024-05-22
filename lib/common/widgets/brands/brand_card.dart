@@ -13,15 +13,16 @@ class BrandCard extends StatelessWidget {
   const BrandCard({
     required this.showBorder,
     this.padding = TSizes.sm,
+    this.onTap,
     Key? key,
   }) : super(key: key);
   final bool showBorder;
   final double padding;
-
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: RoundedContainer(
         padding: const EdgeInsets.all(TSizes.sm),
         showBorder: showBorder,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:waflo_admin/common/widgets/brands/brand_card.dart';
 import 'package:waflo_admin/features/shop/screens/Store/widgets/category_tab.dart';
+import 'package:waflo_admin/features/shop/screens/brand/all_brands.dart';
 import 'package:waflo_admin/features/shop/screens/home/widgets/search_container.dart';
 import 'package:waflo_admin/utils/constants/sizes.dart';
 import 'package:waflo_admin/utils/helpers/helper_functions.dart';
@@ -61,7 +63,7 @@ class CreateStoreScreen extends StatelessWidget {
                         SectionHeadingBar(
                           title: 'Featured Brands',
                           showActionButton: true,
-                          onPressed: () {},
+                          onPressed: () => Get.to(() => const AllBrandScreen()),
                         ),
                         const SizedBox(height: TSizes.spaceBtwItems / 1.5),
 
