@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:waflo_admin/features/authentication/controllers_onboarding/onboarding_controller.dart';
+import 'package:waflo_admin/features/authentication/controller/onboarding/onboarding_controller.dart';
 
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/device/device_utility.dart';

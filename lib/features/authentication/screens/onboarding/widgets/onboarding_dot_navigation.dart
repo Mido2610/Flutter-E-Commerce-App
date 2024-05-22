@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:waflo_admin/features/authentication/controllers_onboarding/onboarding_controller.dart';
+import 'package:waflo_admin/features/authentication/controller/onboarding/onboarding_controller.dart';
 import 'package:waflo_admin/utils/constants/colors.dart';
 
 import '../../../../../utils/constants/sizes.dart';
