@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "908183305058",
+    "project_id": "ecommerceapp-b637b",
+    "storage_bucket": "ecommerceapp-b637b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:908183305058:android:75d6db730b9feed1504a3b",
+        "android_client_info": {
+          "package_name": "com.example.waflo_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "908183305058-760n936a2dnk3guud3a0m67uq68tn2i2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.waflo_admin",
+            "certificate_hash": "21ded9df125a03fd2c87bfca93005bff5b199e9a"
+          }
+        },
+        {
+          "client_id": "908183305058-7sbnvqs98ec7fuv2ek2lj1brg6qj50jo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRdx6NAElEwIl-PhvvbXN41ApL-urZwMI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "908183305058-7sbnvqs98ec7fuv2ek2lj1brg6qj50jo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "908183305058-kjp1scji2b3589u00d9iek3vrt5obhts.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.wafloAdmin"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

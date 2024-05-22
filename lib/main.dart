@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:waflo_admin/features/authentication/screens/onboarding/onboarding.dart';
-import 'package:waflo_admin/utils/theme/theme.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:get/get.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:get_storage/get_storage.dart';
+import 'app.dart';
+import 'data/repositories/authentication_repostiory.dart';
+import 'firebase_options.dart';
 
-void main() {
-
+Future<void> main() async {
   // Todo: Add widgets Binding
-  // Todo: Init Local Storage
-  // Todo: Await Native Splash
-  // Todo: Initialize Authentication
-  runApp(const MyApp());
-}
+  final WidgetsBinding widgetsBinding =
+      WidgetsFlutterBinding.ensureInitialized();
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return GetMaterialApp(
-      themeMode: ThemeMode.system,
-      theme: TAppTheme.lightTheme,
-      darkTheme: TAppTheme.darkTheme,
-      home: const OnBoardingScreen(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
+  // Get Local Storage
+  await GetStorage.init();
+
+  // Todo: Await Native Splash
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
+  // --- Initialize Firebase & authentication repository
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
+      .then(
+    (FirebaseApp value) => Get.put(AuthenticationRepository()),
+  );
+  runApp(const App());
 }
