@@ -21,23 +21,23 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            PrimaryHeaderContainer(
+            const PrimaryHeaderContainer(
               child: Column(
                 children: [
                   // Appar
-                  const HomeAppBar(),
-                  const SizedBox(height: TSizes.spaceBtwSections),
+                  HomeAppBar(),
+                  SizedBox(height: TSizes.spaceBtwSections),
 
                   //Search Bar
 
-                  const SearchContainer(text: 'Search'),
-                  const SizedBox(height: TSizes.spaceBtwSections),
+                  SearchContainer(text: 'Search'),
+                  SizedBox(height: TSizes.spaceBtwSections),
 
                   // Categories
                   Padding(
-                    padding: const EdgeInsets.only(left: TSizes.defaultSpace),
+                    padding: EdgeInsets.only(left: TSizes.defaultSpace),
                     child: Column(
-                      children: const [
+                      children: [
                         // Heading
 
                         SectionHeadingBar(
@@ -51,7 +51,7 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: TSizes.spaceBtwSections),
+                  SizedBox(height: TSizes.spaceBtwSections),
 
                 ],
               ),

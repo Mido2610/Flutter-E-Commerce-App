@@ -8,7 +8,7 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.16.2 <3.0.0"
+  sdk: ">=3.0.5 <4.0.0"
 
 #------------------PACKAGES-------------------
 dependencies:
@@ -35,8 +35,15 @@ dependencies:
   get: ^4.6.5
   get_storage: ^2.1.1
   flutter_rating_bar: ^4.0.1
-  firebase_core: ^2.8.0
+  lottie: ^1.4.2
+  connectivity_plus: ^2.3.9
   
+  # Firebase
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.16.0
+  cloud_firestore: ^4.14.0
+  firebase_storage: ^11.6.0
+
 
 dev_dependencies:
   flutter_test:

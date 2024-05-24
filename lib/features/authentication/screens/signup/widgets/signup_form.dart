@@ -7,7 +7,6 @@ import 'package:waflo_admin/utils/constants/text_strings.dart';
 import 'package:waflo_admin/utils/validators/validation.dart';
 
 import '../../../../../utils/constants/sizes.dart';
-import '../verify_email.dart';
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({
@@ -83,14 +82,19 @@ class SignUpForm extends StatelessWidget {
           const SizedBox(height: TSizes.spaceBtwInputFields),
 
           //Password
-          TextFormField(
-            controller: controller.password,
-            validator: (value) => TValidator.validatePassword(value),
-            obscureText: true,
-            decoration: const InputDecoration(
-              labelText: TTexts.password,
-              prefixIcon: Icon(Iconsax.password_check),
-              suffixIcon: Icon(Iconsax.eye_slash),
+          Obx(
+            () =>  TextFormField(
+              controller: controller.password,
+              validator: (value) => TValidator.validatePassword(value),
+              obscureText: controller.hidePassword.value,
+              decoration:  InputDecoration(
+                labelText: TTexts.password,
+                prefixIcon: const Icon(Iconsax.password_check),
+                suffixIcon: IconButton(
+                  onPressed: () => controller.hidePassword.value = !controller.hidePassword.value,
+                  icon:  Icon(controller.hidePassword.value ? Iconsax.eye_slash : Iconsax.eye),
+                ),
+              ),
             ),
           ),
           const SizedBox(height: TSizes.spaceBtwSections),
@@ -102,9 +106,7 @@ class SignUpForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {
-                Get.to(() => const VerifyEmailScreen());
-              },
+              onPressed: () => controller.signUp(),
               child: const Text(TTexts.createAccount),
             ),
           ),

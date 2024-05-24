@@ -54,7 +54,7 @@ class SucessSreen extends StatelessWidget {
                 onPressed: onPressed,
                 child: const Text(TTexts.tContinue),
                 style: ElevatedButton.styleFrom(
-                  primary: TColors.primary,
+                  backgroundColor: TColors.primary
                 ),
               ),
             )

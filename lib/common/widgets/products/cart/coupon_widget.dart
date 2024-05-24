@@ -41,8 +41,6 @@ class CouponCode extends StatelessWidget {
               child: const Text('Áp dụng'),
               style: ElevatedButton.styleFrom(
                 side: BorderSide(color: TColors.grey.withOpacity(0.1)),
-                primary: Colors.grey.withOpacity(0.3),
-                onPrimary: dark ? TColors.white.withOpacity(0.5) : TColors.dark.withOpacity(0.5),
               )
             ),
           ),

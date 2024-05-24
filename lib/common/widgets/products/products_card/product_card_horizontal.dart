@@ -72,9 +72,9 @@ class ProductCardHorizontal extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children:  [
                         ProductTitleText(
                             title: 'Red Nike Air Max 270', smallSize: true),
                         SizedBox(height: TSizes.spaceBtwItems / 2),
