@@ -15,6 +15,8 @@ class TTexts{
   // -- Home
   static const String homeAppbarTitle = 'Home';
   static const String homeAppbarSubTitle = 'Taimoor Sikander';
+  static const String appName = "Mido store";
+
 
   //Login
   static const String signIn = 'Sign In';

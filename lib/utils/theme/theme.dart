@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:waflo_admin/utils/constants/colors.dart';
 import 'package:waflo_admin/utils/theme/custom_themes/bottom_sheet_theme.dart';
 import 'package:waflo_admin/utils/theme/custom_themes/checkbox_theme.dart';
 import 'package:waflo_admin/utils/theme/custom_themes/outlined_button_theme.dart';
@@ -16,30 +17,32 @@ class TAppTheme {
     useMaterial3: true,
     fontFamily: 'Poppins',
     brightness: Brightness.light,
+    disabledColor: TColors.grey,
     primaryColor: Colors.blue,
     textTheme: TTextTheme.lightTextTheme,
     chipTheme: TChipTheme.lightChipTheme,
-    elevatedButtonTheme: TElevatedButtonsTheme.lightElevatetdButtonTheme,
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: TColors.primaryBackground,
     appBarTheme: TAppBarTheme.lightAppBarTheme,
-    checkboxTheme: TCheckBoxTheme.lightCheckBoxTheme,
+    checkboxTheme: TCheckboxTheme.lightCheckboxTheme,
     bottomSheetTheme: TBottomSheetTheme.lightBottomSheetTheme,
-    outlinedButtonTheme: TOutLineButtonTheme.lightOutLineButtonTheme,
+    elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
+    outlinedButtonTheme: TOutlinedButtonTheme.lightOutlinedButtonTheme,
     inputDecorationTheme: TTextFormFieldTheme.lightInputDecorationTheme,
   );
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     fontFamily: 'Poppins',
+    disabledColor: TColors.grey,
     brightness: Brightness.dark,
     primaryColor: Colors.blue,
     textTheme: TTextTheme.darkTextTheme,
     chipTheme: TChipTheme.darkChipTheme,
-    elevatedButtonTheme: TElevatedButtonsTheme.darkElevatetdButtonTheme,
-    scaffoldBackgroundColor: Colors.black,
+    scaffoldBackgroundColor: TColors.primary.withOpacity(0.1),
     appBarTheme: TAppBarTheme.darkAppBarTheme,
-    checkboxTheme: TCheckBoxTheme.darkCheckBoxTheme,
+    checkboxTheme: TCheckboxTheme.darkCheckboxTheme,
     bottomSheetTheme: TBottomSheetTheme.darkBottomSheetTheme,
-    outlinedButtonTheme: TOutLineButtonTheme.darkOutLineButtonTheme,
+    elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
+    outlinedButtonTheme: TOutlinedButtonTheme.darkOutlinedButtonTheme,
     inputDecorationTheme: TTextFormFieldTheme.darkInputDecorationTheme,
   );
 }

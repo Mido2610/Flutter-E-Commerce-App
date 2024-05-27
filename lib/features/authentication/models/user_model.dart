@@ -26,8 +26,7 @@ class UserModel {
   String get fullName => '$firstName $lastName';
 
   // Helper function to format the phone number
-  String get formattedPhoneNumber =>
-      TFortmatters.formatPhoneNumber(phoneNumber);
+  String get formattedPhoneNumber => TFortmatters.formatPhoneNumber(phoneNumber);
 
   // Static function to split full name into first and last name
   static List<String> nameParts(fullName) => fullName.split(" ");
@@ -55,7 +54,7 @@ class UserModel {
   );
 
   //Convert the user model to JSON stucture for staring data in Firebase
-  Map<dynamic, dynamic> toJson() {
+  Map<String, dynamic> toJson() {
     return {
       'FirstName': firstName,
       'lastName': lastName,

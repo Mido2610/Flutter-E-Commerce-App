@@ -9,7 +9,7 @@ import '../../../../data/repositories/authentication_repostiory.dart';
 import '../../../../utils/constants/images_strings.dart';
 import '../../../../utils/constants/text_strings.dart';
 
-class VerifyEmailController extends GetxController {
+class   VerifyEmailController extends GetxController {
   static VerifyEmailController get instance => Get.find();
 
   // Send email whenever verify screen appears & Set timer for auto redirect.
@@ -17,6 +17,7 @@ class VerifyEmailController extends GetxController {
   @override
   void onInit() {
     sendEmailVerification();
+    checkEmailVerificationStatus();
     setTimerForAutoRedirect();
     super.onInit();
   }
@@ -24,8 +25,7 @@ class VerifyEmailController extends GetxController {
   sendEmailVerification() async {
     try {
       await AuthenticationRepository.instance.sendEmailVerification();
-      TLoaders.successSnackBar(
-          title: 'Email Sent', message: 'Please Check Your Email For Verification');
+      TLoaders.successSnackBar(title: 'Email Sent', message: 'Please Check Your Email For Verification');
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }
@@ -51,7 +51,7 @@ class VerifyEmailController extends GetxController {
 
   // Manually Check if email is verified.
 
-  checkEmailVertificationStatus() async {
+  checkEmailVerificationStatus() async {
     final currentUser = FirebaseAuth.instance.currentUser;
     if (currentUser != null && currentUser.emailVerified){
         Get.off(

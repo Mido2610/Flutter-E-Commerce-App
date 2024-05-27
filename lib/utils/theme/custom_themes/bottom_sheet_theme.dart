@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
+import '../../constants/colors.dart';
 
 class TBottomSheetTheme {
   TBottomSheetTheme._();
 
   static BottomSheetThemeData lightBottomSheetTheme = BottomSheetThemeData(
-    backgroundColor: Colors.white,
-    modalBackgroundColor: Colors.white,
+    showDragHandle: true,
+    backgroundColor: TColors.white,
+    modalBackgroundColor: TColors.white,
     constraints: const BoxConstraints(minWidth: double.infinity),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(16.0),
-    ),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
   );
+
   static BottomSheetThemeData darkBottomSheetTheme = BottomSheetThemeData(
-    backgroundColor: Colors.black,
-    modalBackgroundColor: Colors.black,
+    showDragHandle: true,
+    backgroundColor: TColors.black,
+    modalBackgroundColor: TColors.black,
     constraints: const BoxConstraints(minWidth: double.infinity),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(16.0),
-    ),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
   );
 }

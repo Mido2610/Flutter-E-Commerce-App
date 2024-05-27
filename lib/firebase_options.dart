@@ -30,10 +30,7 @@ class DefaultFirebaseOptions {
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -73,4 +70,14 @@ class DefaultFirebaseOptions {
     iosClientId: '908183305058-kjp1scji2b3589u00d9iek3vrt5obhts.apps.googleusercontent.com',
     iosBundleId: 'com.example.wafloAdmin',
   );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyA5t_9nfZhmSBsP41cMITzb6P2HmRVwvXw',
+    appId: '1:908183305058:web:e62aa8b3f13adba5504a3b',
+    messagingSenderId: '908183305058',
+    projectId: 'ecommerceapp-b637b',
+    authDomain: 'ecommerceapp-b637b.firebaseapp.com',
+    storageBucket: 'ecommerceapp-b637b.appspot.com',
+  );
+
 }
