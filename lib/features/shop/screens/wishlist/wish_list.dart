@@ -10,7 +10,7 @@ import 'package:waflo_admin/features/shop/screens/home/home.dart';
 import '../../../../utils/constants/sizes.dart';
 
 class CreateWishListSCreen extends StatelessWidget {
-  const CreateWishListSCreen({Key? key}) : super(key: key);
+  const CreateWishListSCreen({super.key,});
 
   @override
   Widget build(BuildContext context) {

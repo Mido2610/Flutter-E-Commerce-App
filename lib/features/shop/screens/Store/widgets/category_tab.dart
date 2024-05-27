@@ -9,8 +9,8 @@ import '../../../../../utils/constants/sizes.dart';
 
 class CategoryTab extends StatelessWidget {
   const CategoryTab({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

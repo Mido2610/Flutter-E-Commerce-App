@@ -5,14 +5,14 @@ import '../../../utils/constants/colors.dart';
 /// Widget for displaying action buttons for table rows
 class TableActionButtons extends StatelessWidget {
   const TableActionButtons({
-    Key? key,
+    super.key,
     this.view = false,
     this.edit = true,
     this.delete = true,
     this.onViewPressed,
     this.onEditPressed,
     this.onDeletePressed,
-  }) : super(key: key);
+  });
 
   final bool view;
   final bool edit;

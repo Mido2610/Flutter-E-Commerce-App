@@ -6,7 +6,7 @@ import '../../../utils/helpers/helper_functions.dart';
 
 class CircularImage extends StatelessWidget {
   const CircularImage({
-    Key? key,
+    super.key,
     this.width = 56,
     this.height = 56,
     this.padding = TSizes.sm,
@@ -15,7 +15,7 @@ class CircularImage extends StatelessWidget {
     this.overlayColor,
     this.backgroundColor,
     this.fit = BoxFit.cover,
-  }) : super(key: key);
+  });
   final double width, height, padding;
   final String image;
   final bool isNetworkImage;

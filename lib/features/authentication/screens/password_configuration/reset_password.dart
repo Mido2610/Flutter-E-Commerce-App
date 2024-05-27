@@ -7,7 +7,7 @@ import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 
 class ResetPassWordScreen extends StatelessWidget {
-  const ResetPassWordScreen({Key? key}) : super(key: key);
+  const ResetPassWordScreen({super.key,});
 
   @override
   Widget build(BuildContext context) {

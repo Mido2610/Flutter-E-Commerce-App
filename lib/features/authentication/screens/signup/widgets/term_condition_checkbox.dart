@@ -8,8 +8,8 @@ import '../../../../../utils/constants/text_strings.dart';
 
 class TermsConditionCheckBox extends StatelessWidget {
   const TermsConditionCheckBox({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +20,8 @@ class TermsConditionCheckBox extends StatelessWidget {
         SizedBox(
           width: 24,
           height: 24,
-          child: Obx(() => Checkbox(value: controller.privayPolicy.value, 
-          onChanged: (vallue) =>  controller.privayPolicy.value = !controller.privayPolicy.value)),
+          child: Obx(() => Checkbox(value: controller.privacyPolicy.value, 
+          onChanged: (vallue) =>  controller.privacyPolicy.value = !controller.privacyPolicy.value)),
         ),
         const SizedBox(width: TSizes.spaceBtwItems),
         Text.rich(TextSpan(children: [

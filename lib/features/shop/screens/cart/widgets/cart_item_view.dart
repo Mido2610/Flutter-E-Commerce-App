@@ -7,10 +7,10 @@ import '../../../../../utils/constants/sizes.dart';
 
 class CartItemView extends StatelessWidget {
   const CartItemView({
-    Key? key,
+    super.key,
     this.showAddRemoveButton = true,
 
-    }) : super(key: key);
+    });
 
     final bool showAddRemoveButton;
 
@@ -27,18 +27,18 @@ class CartItemView extends StatelessWidget {
               
               // add remove button with Row with total Price
               if(showAddRemoveButton)
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
-                    children: const [
+                    children: [
                       //Extra space
                       SizedBox(width: 70),
                       // Add Remove Button
                       ProductQuantityWithAddRemoveButton(),
                     ],
                   ),
-                  const ProductPriceText(price: '250.000'),
+                  ProductPriceText(price: '250.000'),
                 ],
               )
             ],

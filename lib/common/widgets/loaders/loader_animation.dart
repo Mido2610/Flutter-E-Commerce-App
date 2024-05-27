@@ -6,8 +6,8 @@ import '../../../utils/constants/images_strings.dart';
 /// A circular loader widget with customizable foreground and background colors.
 class TLoaderAnimation extends StatelessWidget {
   const TLoaderAnimation({
-    Key? key,
-    }) : super(key: key);
+    super.key,
+    });
 
 
   @override

@@ -7,7 +7,7 @@ import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
 
 class BottomAddToCart extends StatelessWidget {
-  const BottomAddToCart({Key? key}) : super(key: key);
+  const BottomAddToCart({super.key,});
 
   @override
   Widget build(BuildContext context) {
@@ -48,14 +48,14 @@ class BottomAddToCart extends StatelessWidget {
             ],
           ),
           ElevatedButton(
-            onPressed: () {}, 
-            child: const Text('Add to cart'),
+            onPressed: () {},
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.all(TSizes.md),
-              primary : TColors.black,
+              backgroundColor: TColors.black,
               side: const BorderSide(color: TColors.black)
 
-            )
+            ), 
+            child: const Text('Add to cart')
             ),
         ],
       ),

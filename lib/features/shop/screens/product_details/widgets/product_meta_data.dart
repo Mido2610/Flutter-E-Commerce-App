@@ -12,7 +12,7 @@ import '../../../../../utils/constants/images_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 
 class ProductMetaData extends StatelessWidget {
-  const ProductMetaData({Key? key}) : super(key: key);
+  const ProductMetaData({super.key,});
 
   @override
   Widget build(BuildContext context) {

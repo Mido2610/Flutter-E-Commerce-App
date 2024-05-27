@@ -9,7 +9,7 @@ import '../../../../utils/constants/sizes.dart';
 import 'add_new_address.dart';
 
 class UserAddressScreen extends StatelessWidget {
-  const UserAddressScreen({Key? key}) : super(key: key);
+  const UserAddressScreen({super.key,});
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +23,11 @@ class UserAddressScreen extends StatelessWidget {
         showBackArrow: true,
         title: Text('Addresses', style: Theme.of(context).textTheme.headlineSmall),
       ),
-      body:  SingleChildScrollView(
+      body:  const SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(TSizes.defaultSpace),
+          padding: EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
-            children: const [
+            children: [
               SingleAddress(selectedAddress: true),
               SingleAddress(selectedAddress: false),
 

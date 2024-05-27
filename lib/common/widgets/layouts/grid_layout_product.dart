@@ -4,11 +4,11 @@ import '../../../utils/constants/sizes.dart';
 
 class GridLayOutProduct extends StatelessWidget {
   const GridLayOutProduct({
-    Key? key,
+    super.key,
     required this.itemCount,
     required this.itemBuilder,
     this.mainAxisExtent = 288,
-  }) : super(key: key);
+  });
   final int itemCount;
   final double? mainAxisExtent;
   final Widget Function(BuildContext, int) itemBuilder;

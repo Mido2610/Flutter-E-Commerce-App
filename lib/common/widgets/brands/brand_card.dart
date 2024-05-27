@@ -14,8 +14,8 @@ class BrandCard extends StatelessWidget {
     required this.showBorder,
     this.padding = TSizes.sm,
     this.onTap,
-    Key? key,
-  }) : super(key: key);
+    super.key
+  });
   final bool showBorder;
   final double padding;
   final void Function()? onTap;

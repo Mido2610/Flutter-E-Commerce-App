@@ -14,7 +14,7 @@ import '../../../../common/widgets/products/cart/cart_menu_icon.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 
 class CreateStoreScreen extends StatelessWidget {
-  const CreateStoreScreen({Key? key}) : super(key: key);
+  const CreateStoreScreen({super.key,});
 
   @override
   Widget build(BuildContext context) {

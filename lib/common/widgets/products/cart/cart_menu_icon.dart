@@ -8,12 +8,12 @@ import '../../../../utils/helpers/helper_functions.dart';
 
 class CartCounterIcon extends StatelessWidget {
   const CartCounterIcon({
-    Key? key,
+    super.key,
     required this.onPressed,
     this.iconColor,
     this.counterBgColor,
     this.counterTextColor,
-  }) : super(key: key);
+  });
   final Color? iconColor, counterBgColor, counterTextColor;
   final VoidCallback onPressed;
 

@@ -5,12 +5,12 @@ import '../../../../../utils/constants/sizes.dart';
 
 class ProfileSettingMenu extends StatelessWidget {
   const ProfileSettingMenu({
-    Key? key,
+    super.key,
     this.icon = Iconsax.arrow_right_34,
     required this.onPressed,
     required this.title,
     required this.value,
-  }) : super(key: key);
+  });
 
   final IconData icon;
   final VoidCallback onPressed;

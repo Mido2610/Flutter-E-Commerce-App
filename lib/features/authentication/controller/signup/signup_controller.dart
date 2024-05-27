@@ -15,51 +15,55 @@ class SignUpController extends GetxController {
 
   //Variables
   final hidePassword = true.obs; // Obx variable for password visibility
-  final privayPolicy = true.obs; // Obx variable for privacy policy checkbox
+  final privacyPolicy = true.obs; // Obx variable for privacy policy checkbox
   final email = TextEditingController(); // Controller for email input
   final lastName = TextEditingController(); // Controller for last name input
   final firstName = TextEditingController(); // Controller for first name input
   final username = TextEditingController(); // Controller for username input
   final password = TextEditingController(); // Controller for password input
-  final phoneNumber =
-      TextEditingController(); // Controller for phone number input
-  GlobalKey<FormState> signupFormKey =
-      GlobalKey<FormState>(); // Form key for validation
+  final phoneNumber = TextEditingController(); // Controller for phone number input
+  GlobalKey<FormState> signupFormKey = GlobalKey<FormState>(); // Form key for validation
 
   // --SIGNUP
 
   void signUp() async {
     try {
       //Start Loading
-
-      TFullScreenLoader.openLoadingDialog(
-          'We are processing your information', TImages.docerAnimation);
+      TFullScreenLoader.openLoadingDialog('We are processing your information...', TImages.docerAnimation);
 
       //Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
-      if (!isConnected) return;
+      if (!isConnected) {
+        TFullScreenLoader.stopLoading();
+        return;
+      }
 
       // Form Validation
 
-      if (!signupFormKey.currentState!.validate()) return;
+      if (!signupFormKey.currentState!.validate()) {
+        // Remove loader
+        TFullScreenLoader.stopLoading();
+        return;
+      }
 
       // Privacy Policy Check
-      if (!privayPolicy.value) {
+      if (!privacyPolicy.value) {
         TLoaders.warningSnackBar(
             title: 'Accept Privacy Policy',
-            message: 'In Order To Continue You Must Accept The Privacy Policy');
+            message: 'In Order To Continue You Must Accept The Privacy Policy'
+        );
+        // Remove loader
+        TFullScreenLoader.stopLoading();
         return;
       }
 
       // Register user in the Firebase  Authentication & Save user data in the firebase
 
-      final userCredential = await AuthenticationRepository.instance
-          .registerWithEmailAndPassWord(
-              email.text.trim(), password.text.trim());
+      final userCredentials = await AuthenticationRepository.instance.registerWithEmailAndPassWord(email.text.trim(), password.text.trim());
 
       // Save Authenticated userdata in the Firebase storage
       final newUSer = UserModel(
-        id: userCredential.user!.uid,
+        id: userCredentials.user!.uid,
         firstName: firstName.text.trim(),
         lastName: lastName.text.trim(),
         username: username.text.trim(),
@@ -71,6 +75,9 @@ class SignUpController extends GetxController {
       final userRepository = Get.put(UserRepository());
       await userRepository.saveUserRecord(newUSer);
 
+      //Remove loader 
+      TFullScreenLoader.stopLoading();
+
       // show sucess message
 
       TLoaders.successSnackBar(
@@ -79,10 +86,8 @@ class SignUpController extends GetxController {
               'Your account has been created! Please check your email for verification.');
 
       // Move to Verity email address
-      Get.to(() => const VerifyEmailScreen());
+      Get.to(() => VerifyEmailScreen(email: email.text.trim()));
     } catch (e) {
-      TLoaders.errorSnackBar(title: 'Oh snap!', message: e.toString());
-
       //Remove loader
       TFullScreenLoader.stopLoading();
 

@@ -5,7 +5,7 @@ import '../../../utils/constants/sizes.dart';
 
 class RoundedContainer extends StatelessWidget {
   const RoundedContainer({
-    Key? key,
+    super.key,
     this.child,
     this.width,
     this.height,
@@ -17,7 +17,7 @@ class RoundedContainer extends StatelessWidget {
     this.radius = TSizes.cardRadiusLg,
     this.backgroundColor = TColors.white,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final Widget? child;
   final double radius;

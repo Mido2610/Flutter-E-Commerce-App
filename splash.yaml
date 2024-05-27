@@ -4,7 +4,7 @@ flutter_native_splash:
   image: assets\logos\mido-shop-black-logo.png
   image_dark: assets\logos\mido-shop-white-logo.png
 
-  android_14:
+  android_12:
     color: "#FFFFFF"
     color_dark: "#272727"
     image: assets\logos\mido-shop-black-logo.png

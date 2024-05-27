@@ -16,7 +16,7 @@ import '../../../../utils/constants/images_strings.dart';
 import '../../texts/product_price_text.dart';
 
 class ProductCardVertical extends StatelessWidget {
-  const ProductCardVertical({Key? key}) : super(key: key);
+  const ProductCardVertical({super.key,});
 
   @override
   Widget build(BuildContext context) {

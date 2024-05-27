@@ -12,8 +12,8 @@ import '../../../../../utils/constants/sizes.dart';
 
 class ProductImageSlider extends StatelessWidget {
   const ProductImageSlider({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
 
   @override

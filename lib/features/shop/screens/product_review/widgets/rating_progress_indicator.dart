@@ -3,8 +3,8 @@ import 'package:waflo_admin/features/shop/screens/product_review/widgets/progres
 
 class OverallProductRating extends StatelessWidget {
   const OverallProductRating({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +15,10 @@ class OverallProductRating extends StatelessWidget {
             child: Text('4.8',
                 style:
                     Theme.of(context).textTheme.displayMedium)),
-        Expanded(
+        const Expanded(
           flex: 7,
           child: Column(
-            children: const [
+            children:  [
                RatingProgressIndicator(text: '5', value: 1.0),
                RatingProgressIndicator(text: '3', value: 0.8),
                RatingProgressIndicator(text: '2', value: 0.7),

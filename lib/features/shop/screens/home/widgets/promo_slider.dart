@@ -10,9 +10,9 @@ import '../../../../../utils/constants/sizes.dart';
 
 class PromoSlider extends StatelessWidget {
   const PromoSlider({
-    Key? key,
+    super.key,
     required this.banners,
-  }) : super(key: key);
+  });
   final List<String> banners;
 
   @override

@@ -6,17 +6,17 @@ import 'package:waflo_admin/common/widgets/products/sortable/sortable_products.d
 import '../../../../utils/constants/sizes.dart';
 
 class BrandProduct extends StatelessWidget {
-  const BrandProduct({Key? key}) : super(key: key);
+  const BrandProduct({super.key,});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const TAppBar(title: Text('Nike'), showBackArrow: true),
+    return const Scaffold(
+      appBar: TAppBar(title: Text('Nike'), showBackArrow: true),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(TSizes.defaultSpace),
+          padding: EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
-            children:const  [
+            children: [
               // Brand Detail
               BrandCard(showBorder: true),
               SizedBox(height: TSizes.spaceBtwSections),

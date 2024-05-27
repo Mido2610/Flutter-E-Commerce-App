@@ -6,12 +6,12 @@ import '../custome_shapes/containers/circular_container.dart';
 
 class ChoiceChipV1 extends StatelessWidget {
   const ChoiceChipV1({
-    Key? key,
+    super.key,
     required this.text,
     required this.selected,
     this.onSelected,
 
-    }) : super(key: key);
+    });
 
   final String text;
   final bool selected;

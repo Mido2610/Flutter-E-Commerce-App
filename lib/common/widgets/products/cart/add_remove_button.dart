@@ -8,8 +8,8 @@ import '../../icons/circular_icon.dart';
 
 class ProductQuantityWithAddRemoveButton extends StatelessWidget {
   const ProductQuantityWithAddRemoveButton({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
 
   @override

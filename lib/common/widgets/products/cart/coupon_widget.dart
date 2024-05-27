@@ -7,8 +7,8 @@ import '../../containers/rounded_container.dart';
 
 class CouponCode extends StatelessWidget {
   const CouponCode({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
 
   @override
@@ -38,10 +38,10 @@ class CouponCode extends StatelessWidget {
             width: 80,
             child: ElevatedButton(
               onPressed: (){},
-              child: const Text('Áp dụng'),
               style: ElevatedButton.styleFrom(
                 side: BorderSide(color: TColors.grey.withOpacity(0.1)),
-              )
+              ),
+              child: const Text('Áp dụng')
             ),
           ),
         ],

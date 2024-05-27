@@ -5,10 +5,10 @@ import '../../../../../utils/device/device_utility.dart';
 
 class RatingProgressIndicator extends StatelessWidget {
   const RatingProgressIndicator({
-    Key? key,
+    super.key,
     required this.text,
     required this.value
-  }) : super(key: key);
+  });
 
   final String text;
   final double value;

@@ -4,13 +4,13 @@ import '../../../utils/constants/enums.dart';
 
 class BrandTitleText extends StatelessWidget {
   const BrandTitleText({
-    Key? key,
+    super.key,
     this.color,
     required this.title,
     this.maxLines = 1,
     this.textAlign = TextAlign.center,
     this.brandTextSize = TextSizes.small,
-  }) : super(key: key);
+  });
 
   final Color? color;
   final String title;

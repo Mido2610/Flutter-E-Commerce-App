@@ -4,13 +4,13 @@ import '../../../utils/constants/colors.dart';
 
 class SettingMenuTile extends StatelessWidget {
   const SettingMenuTile({
-    Key? key,
+    super.key,
     required this.icon,
     required this.title,
     required this.subtitle,
     this.trailing,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final IconData icon;
   final String title;

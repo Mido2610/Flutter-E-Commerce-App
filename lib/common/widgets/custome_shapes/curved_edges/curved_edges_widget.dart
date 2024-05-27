@@ -3,9 +3,9 @@ import 'package:waflo_admin/common/widgets/custome_shapes/curved_edges/curved_ed
 
 class CurvedEdgeWidget extends StatelessWidget {
   const CurvedEdgeWidget({
-    Key? key,
+    super.key,
     this.child,
-  }) : super(key: key);
+  });
   final Widget? child;
 
   @override

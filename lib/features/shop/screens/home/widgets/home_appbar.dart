@@ -7,8 +7,8 @@ import '../../../../../utils/constants/text_strings.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

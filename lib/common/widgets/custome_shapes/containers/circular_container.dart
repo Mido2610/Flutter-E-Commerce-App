@@ -4,7 +4,7 @@ import '../../../../utils/constants/colors.dart';
 
 class CircularContainer extends StatelessWidget {
   const CircularContainer({
-    Key? key,
+    super.key,
     this.width = 400,
     this.height = 400,
     this.radius = 400,
@@ -12,7 +12,7 @@ class CircularContainer extends StatelessWidget {
     this.child,
     this.margin,
     this.backgroundColor = TColors.white,
-  }) : super(key: key);
+  });
 
   final double? width;
   final double? height;

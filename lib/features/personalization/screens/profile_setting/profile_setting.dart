@@ -8,7 +8,7 @@ import '../../../../utils/constants/images_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 
 class ProfileSettingScreen extends StatelessWidget {
-  const ProfileSettingScreen({Key? key}) : super(key: key);
+  const ProfileSettingScreen({super.key,});
 
   @override
   Widget build(BuildContext context) {

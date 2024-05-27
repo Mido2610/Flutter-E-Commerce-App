@@ -10,7 +10,7 @@ import 'package:waflo_admin/utils/constants/images_strings.dart';
 import 'package:waflo_admin/utils/constants/text_strings.dart';
 
 class OnBoardingScreen extends StatelessWidget {
-  const OnBoardingScreen({Key? key}) : super(key: key);
+  const OnBoardingScreen({super.key,});
 
   @override
   Widget build(BuildContext context) {

@@ -13,7 +13,7 @@ import '../../../../utils/constants/sizes.dart';
 import '../product_review/product_review.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({Key? key}) : super(key: key);
+  const ProductDetailScreen({super.key,});
 
   @override
   Widget build(BuildContext context) {

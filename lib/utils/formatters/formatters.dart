@@ -18,19 +18,9 @@ class TFortmatters {
     //Assuming a 10-digit VN phone numberformat
 
     if (phoneNumber.length == 10) {
-      return '+84 ' +
-          phoneNumber.substring(0, 3) +
-          ' ' +
-          phoneNumber.substring(3, 6) +
-          ' ' +
-          phoneNumber.substring(6, 10);
+      return '+84 ${phoneNumber.substring(0, 3)} ${phoneNumber.substring(3, 6)} ${phoneNumber.substring(6, 10)}';
     } else if (phoneNumber.length == 11) {
-      return '+84 ' +
-          phoneNumber.substring(1, 4) +
-          ' ' +
-          phoneNumber.substring(4, 7) +
-          ' ' +
-          phoneNumber.substring(7, 11);
+      return '+84 ${phoneNumber.substring(1, 4)} ${phoneNumber.substring(4, 7)} ${phoneNumber.substring(7, 11)}';
     } else {
       return phoneNumber;
     }

@@ -8,7 +8,7 @@ import '../../../../utils/constants/sizes.dart';
 import '../checkout_screen/checkout_screen.dart';
 
 class CartScreen extends StatelessWidget {
-  const CartScreen({Key? key}) : super(key: key);
+  const CartScreen({super.key,});
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +16,11 @@ class CartScreen extends StatelessWidget {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(TSizes.defaultSpace),
         child: ElevatedButton(
-          child: const Text('Checkout 250.000 đ'),
           onPressed: () => Get.to(() => const CheckOutScreen()),
           style: ElevatedButton.styleFrom(
-            primary: TColors.primary,
+            backgroundColor: TColors.primary,
           ),
+          child: const Text('Checkout 250.000 đ'),
         ),
       ),
       appBar: TAppBar(

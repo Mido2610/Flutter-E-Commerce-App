@@ -5,11 +5,11 @@ import '../../../../../utils/helpers/helper_functions.dart';
 
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({
-    Key? key,
+    super.key,
     required this.image,
     required this.title,
     required this.subTitle,
-  }) : super(key: key);
+  });
 
   final String image;
   final String title;

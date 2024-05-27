@@ -7,8 +7,8 @@ import '../products_card/product_card_vertical.dart';
 
 class SortableProducts extends StatefulWidget {
   const SortableProducts({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _SortableProductsState createState() => _SortableProductsState();

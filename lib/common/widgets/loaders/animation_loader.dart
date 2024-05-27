@@ -15,13 +15,13 @@ class TAnimationLoaderWidget extends StatelessWidget {
   ///   - actionText: The text to be displayed on the action button.
   ///   - onActionPressed: Callback function to be executed when the action button is pressed.
   const TAnimationLoaderWidget({
-    Key? key,
+    super.key,
     required this.text,
     required this.animation,
     this.showAction = false,
     this.actionText,
     this.onActionPressed, this.height, this.width, this.style,
-  }) : super(key: key);
+  });
 
 
   final String text;

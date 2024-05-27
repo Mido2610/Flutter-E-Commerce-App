@@ -10,8 +10,8 @@ import '../../texts/product_title_text.dart';
 
 class CartItem extends StatelessWidget {
   const CartItem({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
 
   @override

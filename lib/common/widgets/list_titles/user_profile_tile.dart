@@ -7,9 +7,9 @@ import '../../../utils/constants/images_strings.dart';
 
 class UserProfileTile extends StatelessWidget {
   const UserProfileTile({
-    Key? key,
+    super.key,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   final VoidCallback onPressed;
 

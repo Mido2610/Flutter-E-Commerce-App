@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class SectionHeadingBar extends StatelessWidget {
   const SectionHeadingBar({
-    Key? key,
+    super.key,
     this.textColor,
     required this.title,
     this.buttonTitle = 'View All',
     this.onPressed,
     this.showActionButton = true,
-  }) : super(key: key);
+  });
   final Color? textColor;
   final bool showActionButton;
   final String title;

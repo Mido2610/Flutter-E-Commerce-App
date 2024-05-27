@@ -10,8 +10,8 @@ import '../../../../../utils/constants/sizes.dart';
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -102,6 +102,7 @@ class SignUpForm extends StatelessWidget {
           // Terms and conditions Checkbox
           const TermsConditionCheckBox(),
           const SizedBox(height: TSizes.spaceBtwSections),
+          
           // Sign Up Button
           SizedBox(
             width: double.infinity,

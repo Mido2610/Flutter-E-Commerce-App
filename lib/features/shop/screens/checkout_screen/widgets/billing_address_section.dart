@@ -5,9 +5,9 @@ import '../../../../../utils/constants/sizes.dart';
 
 class BillingAddressSection extends StatelessWidget {
   const BillingAddressSection({
-    Key? key
+    super.key,
     
-    }) : super(key: key);
+    });
 
   @override
   Widget build(BuildContext context) {

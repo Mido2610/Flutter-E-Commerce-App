@@ -8,7 +8,7 @@ import '../../../../utils/constants/images_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 
 class SubCategoriesScreen extends StatelessWidget {
-  const SubCategoriesScreen({Key? key}) : super(key: key);
+  const SubCategoriesScreen({super.key,});
 
   @override
   Widget build(BuildContext context) {

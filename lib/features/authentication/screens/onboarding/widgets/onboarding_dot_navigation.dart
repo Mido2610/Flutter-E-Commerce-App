@@ -9,8 +9,8 @@ import '../../../../../utils/helpers/helper_functions.dart';
 
 class OnBoardingDotNavgation extends StatelessWidget {
   const OnBoardingDotNavgation({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

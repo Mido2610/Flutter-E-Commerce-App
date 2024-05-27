@@ -4,7 +4,7 @@ import '../../../utils/constants/sizes.dart';
 
 class RoundedImage extends StatelessWidget {
   const RoundedImage({
-    Key? key,
+    super.key,
     this.width,
     this.height,
     required this.imageUrl,
@@ -16,7 +16,7 @@ class RoundedImage extends StatelessWidget {
     this.isNetworkImage = false,
     this.onPressed,
     this.borderRadius = TSizes.md,
-  }) : super(key: key);
+  });
 
   final double? width, height;
   final String imageUrl;

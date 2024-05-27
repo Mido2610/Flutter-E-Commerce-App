@@ -6,9 +6,9 @@ import '../../../utils/helpers/helper_functions.dart';
 
 class TTabBar extends StatelessWidget implements PreferredSizeWidget {
   const TTabBar({
-    Key? key,
+    super.key,
     required this.tabs,
-  }) : super(key: key);
+  });
   final List<Widget> tabs;
 
   @override

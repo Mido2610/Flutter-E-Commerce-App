@@ -8,14 +8,14 @@ import '../../../../../utils/device/device_utility.dart';
 
 class SearchContainer extends StatelessWidget {
   const SearchContainer({
-    Key? key,
+    super.key,
     required this.text,
     this.icon = Iconsax.search_normal,
     this.showBackground = true,
     this.showBorder = true,
     this.onTap,
     this.padding = const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
-  }) : super(key: key);
+  });
   final String text;
   final IconData? icon;
   final bool showBackground;

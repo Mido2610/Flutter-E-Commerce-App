@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../utils/constants/sizes.dart';
 
 class BillingAmountSection extends StatelessWidget {
-  const BillingAmountSection({Key? key}) : super(key: key);
+  const BillingAmountSection({super.key,});
 
   @override
   Widget build(BuildContext context) {

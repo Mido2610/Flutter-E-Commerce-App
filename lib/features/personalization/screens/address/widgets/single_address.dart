@@ -8,10 +8,10 @@ import '../../../../../utils/constants/sizes.dart';
 
 class SingleAddress extends StatelessWidget {
   const SingleAddress({
-    Key? key,
+    super.key,
     required this.selectedAddress
     
-    }) : super(key: key);
+    });
 
     final bool selectedAddress;
 

@@ -8,9 +8,9 @@ import '../containers/rounded_container.dart';
 
 class BrandShowCase extends StatelessWidget {
   const BrandShowCase({
-    Key? key,
+    super.key,
     required this.images,
-  }) : super(key: key);
+  });
 
   final List<String> images;
 

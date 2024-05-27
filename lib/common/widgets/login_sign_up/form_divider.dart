@@ -7,9 +7,9 @@ import '../../../utils/helpers/helper_functions.dart';
 
 class FormDivider extends StatelessWidget {
   const FormDivider({
-    Key? key,
+    super.key,
     required this.diverText,
-  }) : super(key: key);
+  });
   final String diverText;
 
   @override

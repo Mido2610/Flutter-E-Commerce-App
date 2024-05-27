@@ -13,7 +13,7 @@ import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 
 class ProductCardHorizontal extends StatelessWidget {
-  const ProductCardHorizontal({Key? key}) : super(key: key);
+  const ProductCardHorizontal({super.key,});
 
   @override
   Widget build(BuildContext context) {

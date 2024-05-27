@@ -10,7 +10,7 @@ import 'package:waflo_admin/utils/helpers/helper_functions.dart';
 import 'features/shop/screens/Wishlist/wish_list.dart';
 
 class NavigationMenu extends StatelessWidget {
-  const NavigationMenu({Key? key}) : super(key: key);
+  const NavigationMenu({super.key,});
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(NavigtaionController());

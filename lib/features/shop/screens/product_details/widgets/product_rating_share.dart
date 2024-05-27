@@ -5,8 +5,8 @@ import '../../../../../utils/constants/sizes.dart';
 
 class RatingAndShare extends StatelessWidget {
   const RatingAndShare({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

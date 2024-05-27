@@ -9,7 +9,7 @@ import 'package:waflo_admin/features/shop/screens/brand/brand_product.dart';
 import '../../../../utils/constants/sizes.dart';
 
 class AllBrandScreen extends StatelessWidget {
-  const AllBrandScreen({Key? key}) : super(key: key);
+  const AllBrandScreen({super.key,});
 
   @override
   Widget build(BuildContext context) {

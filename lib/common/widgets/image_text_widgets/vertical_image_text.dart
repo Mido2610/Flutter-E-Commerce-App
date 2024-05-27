@@ -6,13 +6,13 @@ import '../../../utils/helpers/helper_functions.dart';
 
 class VerticalImageText extends StatelessWidget {
   const VerticalImageText({
-    Key? key,
+    super.key,
     required this.image,
     required this.title,
     this.textColor = TColors.white,
     this.backgroundColor,
     this.onTap,
-  }) : super(key: key);
+  });
   final String image;
   final String title;
   final Color textColor;

@@ -7,12 +7,12 @@ import '../../styles//spacing_styles.dart';
 
 class SucessSreen extends StatelessWidget {
   const SucessSreen({
-    Key? key,
+    super.key,
     required this.image,
     required this.title,
     required this.subTitle,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   final String image;
   final String title;
@@ -52,10 +52,10 @@ class SucessSreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: onPressed,
-                child: const Text(TTexts.tContinue),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: TColors.primary
                 ),
+                child: const Text(TTexts.tContinue),
               ),
             )
           ]),

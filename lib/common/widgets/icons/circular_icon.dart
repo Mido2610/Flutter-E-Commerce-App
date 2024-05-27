@@ -6,7 +6,7 @@ import '../../../utils/helpers/helper_functions.dart';
 
 class CircularIcon extends StatelessWidget {
   const CircularIcon({
-    Key? key,
+    super.key,
     this.width,
     this.height,
     this.size = TSizes.lg,
@@ -14,7 +14,7 @@ class CircularIcon extends StatelessWidget {
     this.color,
     this.backgroundColor,
     this.onPressed,
-  }) : super(key: key);
+  });
   final double? width, height, size;
   final IconData icon;
   final Color? color;

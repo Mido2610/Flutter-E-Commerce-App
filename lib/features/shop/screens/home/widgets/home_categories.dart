@@ -8,8 +8,8 @@ import '../../sub_category/sub_categories.dart';
 
 class HomeCategories extends StatelessWidget {
   const HomeCategories({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

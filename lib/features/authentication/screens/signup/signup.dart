@@ -8,7 +8,7 @@ import '../../../../common/widgets/login_sign_up/social_button.dart';
 import '../../../../utils/constants/text_strings.dart';
 
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+  const SignUpScreen({super.key,});
 
   @override
   Widget build(BuildContext context) {

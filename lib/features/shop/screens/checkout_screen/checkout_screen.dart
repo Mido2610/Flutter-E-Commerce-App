@@ -15,7 +15,9 @@ import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 
 class CheckOutScreen extends StatelessWidget {
-  const CheckOutScreen({Key? key}) : super(key: key);
+  const CheckOutScreen ({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +47,8 @@ class CheckOutScreen extends StatelessWidget {
                       showBorder: true,
                       padding: const EdgeInsets.all(TSizes.md),
                       backgroundColor: dark ? TColors.black : TColors.white,
-                      child: Column(
-                        children: const [
+                      child: const Column(
+                        children:  [
                           // Pricing
                           BillingAmountSection(),
                           SizedBox(height: TSizes.spaceBtwItems),
@@ -69,7 +71,6 @@ class CheckOutScreen extends StatelessWidget {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(TSizes.defaultSpace),
         child: ElevatedButton(
-          child: const Text('Checkout 250.000 đ'),
           onPressed: () => Get.to(() => SucessSreen(
                 title: 'Thanh toán thành công!',
                 image: TImages.sucessPayment,
@@ -78,8 +79,9 @@ class CheckOutScreen extends StatelessWidget {
               )),
             
           style: ElevatedButton.styleFrom(
-            primary: TColors.primary,
+            backgroundColor: TColors.primary,
           ),
+          child: const Text('Checkout 250.000 đ'),
         ),
       ),
     );

@@ -9,9 +9,9 @@ import '../../../../../utils/helpers/helper_functions.dart';
 
 class UserReviewCard extends StatelessWidget {
   const UserReviewCard({
-    Key? key
+    super.key,
 
-    }) : super(key: key);
+    });
 
   @override
   Widget build(BuildContext context) {

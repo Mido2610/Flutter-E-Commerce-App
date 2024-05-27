@@ -8,9 +8,9 @@ import '../../../../utils/constants/sizes.dart';
 
 class ProductReviewScreen extends StatelessWidget {
   const ProductReviewScreen({
-    Key? key
+    super.key,
 
-    }) : super(key: key);
+    });
 
   @override
   Widget build(BuildContext context) {

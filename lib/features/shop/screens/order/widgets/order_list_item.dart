@@ -7,7 +7,7 @@ import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
 
 class OrderListItem extends StatelessWidget {
-  const OrderListItem({Key? key}) : super(key: key);
+  const OrderListItem({super.key,});
 
   @override
   Widget build(BuildContext context) {

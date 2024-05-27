@@ -6,9 +6,9 @@ import '../../../../utils/constants/colors.dart';
 
 class RatingBarIndicatorV1 extends StatelessWidget {
   const RatingBarIndicatorV1({
-    Key? key,
+    super.key,
     required this.rating
-  }) : super(key: key);
+  });
   final double rating;
 
   @override
