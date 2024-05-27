@@ -22,9 +22,10 @@ class LoginController extends GetxController{
   final userController = Get.put(UserController());
 
   @override
+  @override
   void onInit(){
-    email.text =  localStorage.read('REMEMBER_ME_EMAIL');
-    password.text =  localStorage.read('REMEMBER_ME_PASSWORD');
+    email.text =  localStorage.read('REMEMBER_ME_EMAIL') ?? '';
+    password.text =  localStorage.read('REMEMBER_ME_PASSWORD') ?? '';
     super.onInit();
   }
 
@@ -95,6 +96,8 @@ class LoginController extends GetxController{
       AuthenticationRepository.instance.screenRedirect();
 
     } catch (e) {
+      // Remove loader
+      TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     }
   }

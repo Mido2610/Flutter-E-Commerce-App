@@ -9,6 +9,7 @@ import 'package:waflo_admin/features/authentication/screens/login/login.dart';
 import 'package:waflo_admin/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:waflo_admin/features/authentication/screens/signup/verify_email.dart';
 import 'package:waflo_admin/navigation.menu.dart';
+import 'package:waflo_admin/utils/exceptions/format_exceptions.dart';
 
 import '../../utils/exceptions/firebase_auth_exceptions.dart';
 import '../../utils/exceptions/firebase_exceptions.dart';
@@ -77,17 +78,15 @@ class AuthenticationRepository extends GetxController {
 
   /// [Email Authentication] - Register
 
-  Future<UserCredential> registerWithEmailAndPassWord(
-      String email, String password) async {
+  Future<UserCredential> registerWithEmailAndPassWord(String email, String password) async {
     try {
-      return await _auth.createUserWithEmailAndPassword(
-          email: email, password: password);
+      return await _auth.createUserWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code);
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {
-      throw const FormatException();
+      throw const TFormatException();
     } on PlatformException catch (e) {
       throw TPlatformException(e.code).message;
     } catch (e) {
@@ -104,7 +103,7 @@ class AuthenticationRepository extends GetxController {
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {
-      throw const FormatException();
+      throw const TFormatException();
     } on PlatformException catch (e) {
       throw TPlatformException(e.code).message;
     } catch (e) {
@@ -135,7 +134,7 @@ class AuthenticationRepository extends GetxController {
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {
-      throw const FormatException();
+      throw const TFormatException();
     } on PlatformException catch (e) {
       throw TPlatformException(e.code).message;
     } catch (e) {
@@ -146,6 +145,7 @@ class AuthenticationRepository extends GetxController {
 
   Future<void> logout() async {
     try {
+      await GoogleSignIn().signOut();
       await FirebaseAuth.instance.signOut();
       Get.offAll(() => const LoginScreen());
     } on FirebaseAuthException catch (e) {
@@ -153,7 +153,7 @@ class AuthenticationRepository extends GetxController {
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {
-      throw const FormatException();
+      throw const TFormatException();
     } on PlatformException catch (e) {
       throw TPlatformException(e.code).message;
     } catch (e) {

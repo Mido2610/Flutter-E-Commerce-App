@@ -13,9 +13,8 @@ class OnBoardingController extends GetxController {
   Rx<int> currentPageIndex = 0.obs;
 
   // Update Current Index when Page Scroll
-  void updatePageIndicator(index) {
-    currentPageIndex.value = index;
-  }
+  void updatePageIndicator(index) => currentPageIndex.value = index;
+
 
   void dotNavigatorClick(index) {
     currentPageIndex.value = index;

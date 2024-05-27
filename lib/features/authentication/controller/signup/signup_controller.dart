@@ -52,8 +52,6 @@ class SignUpController extends GetxController {
             title: 'Accept Privacy Policy',
             message: 'In Order To Continue You Must Accept The Privacy Policy'
         );
-        // Remove loader
-        TFullScreenLoader.stopLoading();
         return;
       }
 

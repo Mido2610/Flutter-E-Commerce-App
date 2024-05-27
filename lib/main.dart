@@ -8,18 +8,18 @@ import 'data/repositories/authentication_repostiory.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
-  // Todo: Add widgets Binding
   final WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
   // Get Local Storage
   await GetStorage.init();
 
-  // Todo: Await Native Splash
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   // --- Initialize Firebase & authentication repository
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform).then(
-    (FirebaseApp value) => Get.put(AuthenticationRepository()),
+    (FirebaseApp value) async {
+      Get.put(AuthenticationRepository());
+    },
   );
   runApp(const App());
 }

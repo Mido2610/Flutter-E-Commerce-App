@@ -4,6 +4,8 @@ import 'package:iconsax/iconsax.dart';
 import 'package:waflo_admin/common/widgets/custome_shapes/containers/primary_header_container.dart';
 import 'package:waflo_admin/common/widgets/list_titles/setting_menu_tile.dart';
 import 'package:waflo_admin/common/widgets/texts/section_heading.dart';
+import 'package:waflo_admin/data/repositories/authentication_repostiory.dart';
+import 'package:waflo_admin/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:waflo_admin/features/personalization/screens/address/address.dart';
 import 'package:waflo_admin/features/personalization/screens/profile_setting/profile_setting.dart';
 import '../../../../common/widgets/appbar/appbar.dart';
@@ -133,7 +135,7 @@ class CreateProfileScreen extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: OutlinedButton(
-                    onPressed: () => Get.to(() => const LoginScreen()),
+                    onPressed: () => AuthenticationRepository.instance.logout(),
                     child: const Text('Logout'),
                   ),
                 ),
