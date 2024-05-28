@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:waflo_admin/common/widgets/appbar/appbar.dart';
 import 'package:waflo_admin/common/widgets/images/circular_image.dart';
+import 'package:waflo_admin/common/widgets/shimmers/shimmer.dart';
 import 'package:waflo_admin/common/widgets/texts/section_heading.dart';
 import 'package:waflo_admin/features/personalization/controllers/user_controller.dart';
 import 'package:waflo_admin/features/personalization/screens/profile_setting/widgets/change_name_screen.dart';
@@ -29,17 +30,18 @@ class ProfileSettingScreen extends StatelessWidget {
           child: Column(
             children: [
               // Profile Picture
-
               SizedBox(
                 width: double.infinity,
                 child: Column(
                   children: [
-                    const CircularImage(
-                      image: TImages.user,
-                      width: 80,
-                      height: 80,
-                    ),
-                    TextButton(onPressed: (){}, child: const Text('Change Profile Picture'))
+                    Obx(() {
+                      final networkImage = controller.user.value.profilePicture;
+                      final image = networkImage.isNotEmpty ? networkImage : TImages.user;
+                      return controller.imageUpLoading.value
+                          ? const TShimmerEffect(width: 80, height: 80, radius: 80)
+                          : CircularImage(image: image, width: 80, height: 80, isNetworkImage: networkImage.isNotEmpty);
+                    }),
+                    TextButton(onPressed: () => controller.uploadUserProfilePicture(), child: const Text('Change Profile Picture'))
                   ],
                 ),
               ),

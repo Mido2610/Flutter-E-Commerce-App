@@ -5,14 +5,12 @@ import 'package:waflo_admin/common/widgets/custome_shapes/containers/primary_hea
 import 'package:waflo_admin/common/widgets/list_titles/setting_menu_tile.dart';
 import 'package:waflo_admin/common/widgets/texts/section_heading.dart';
 import 'package:waflo_admin/data/repositories/authentication_repostiory.dart';
-import 'package:waflo_admin/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:waflo_admin/features/personalization/screens/address/address.dart';
 import 'package:waflo_admin/features/personalization/screens/profile_setting/profile_setting.dart';
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/list_titles/user_profile_tile.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
-import '../../../authentication/screens/login/login.dart';
 import '../order/order_screen.dart';
 
 class CreateProfileScreen extends StatelessWidget {
