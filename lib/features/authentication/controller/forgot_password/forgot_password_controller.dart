@@ -20,13 +20,15 @@ class ForgotPasswordController extends GetxController {
       //Start Loading
       TFullScreenLoader.openLoadingDialog('Processing your request...', TImages.docerAnimation);
 
+
+      // Check internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         TFullScreenLoader.stopLoading();
         return;
       }
+      
       // Form Validation
-
       if (!forgotPassWordFormKey.currentState!.validate()) {
         // Remove loader
         TFullScreenLoader.stopLoading();
@@ -56,7 +58,8 @@ class ForgotPasswordController extends GetxController {
   resetPasswordResetEmail(String email) async {
     try {
       //Start Loading
-      TFullScreenLoader.openLoadingDialog('Processing your request...', TImages.docerAnimation);
+      TFullScreenLoader.openLoadingDialog(
+          'Processing your request...', TImages.docerAnimation);
 
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
@@ -73,11 +76,10 @@ class ForgotPasswordController extends GetxController {
       TLoaders.successSnackBar(
           title: 'Email Sent',
           message: 'Please Check Your Email For Verification');
-
     } catch (e) {
       // Remove Loader
       TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
-    }    
+    }
   }
 }

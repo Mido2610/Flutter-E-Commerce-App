@@ -5,6 +5,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:waflo_admin/data/repositories/user_repository.dart';
 import 'package:waflo_admin/features/authentication/screens/login/login.dart';
 import 'package:waflo_admin/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:waflo_admin/features/authentication/screens/signup/verify_email.dart';
@@ -22,8 +23,10 @@ class AuthenticationRepository extends GetxController {
   final deviceStorage = GetStorage();
   final _auth = FirebaseAuth.instance;
 
-  // Called from main.dart on app launch
+  // Get Authenticated User data
+  User? get authUser => _auth.currentUser;
 
+  // Called from main.dart on app launch
   @override
   void onReady() {
     FlutterNativeSplash.remove();
@@ -76,7 +79,7 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  /// [Email Authentication] - Register
+  /// [EmailAuthentication] - Register
 
   Future<UserCredential> registerWithEmailAndPassWord(String email, String password) async {
     try {
@@ -94,7 +97,7 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  /// [Email Verification] - Verify Email
+  /// [EmailVerification] - Verify Email
   Future<void> sendEmailVerification() async {
     try {
       await _auth.currentUser?.sendEmailVerification();
@@ -111,7 +114,7 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  /// [Email Authentication] - Forgot Password
+  /// [EmailAuthentication] - Forgot Password
   Future<void> sendPasswordResetEmail(String email) async {
     try {
       await _auth.sendPasswordResetEmail(email: email);
@@ -126,6 +129,27 @@ class AuthenticationRepository extends GetxController {
     } catch (e) {
       throw 'Something went wrong. Please try again.';
     }    
+  }
+
+  /// [ReAuthenticate] - RE AUTHENTICATE USER
+  Future<void>  reAuthenticateWithEmailAndPassword(String email, String password) async {
+    try {
+      // Create a credential with email and password
+      AuthCredential credential = EmailAuthProvider.credential(email: email, password: password);
+
+      // ReAuthenticate 
+      await _auth.currentUser!.reauthenticateWithCredential(credential);
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again.';
+    }
   }
 /* ------------------------------------------ Federated indentify & social login -------------------------------------------------- */
 
@@ -159,7 +183,7 @@ class AuthenticationRepository extends GetxController {
       return null;
     }
   }
-
+  /// [LogoutUser] - Valid for any authenticated
   Future<void> logout() async {
     try {
       await GoogleSignIn().signOut();
@@ -177,8 +201,24 @@ class AuthenticationRepository extends GetxController {
       throw 'Something went wrong. Please try again.';
     }
   }
+  
+  /// [DeleteUser] - Valid for any authenticated
+  Future<void> deleteAccount() async {
+    try {
+      await UserRepository.instance.removeUserRecord(_auth.currentUser!.uid);
+      await _auth.currentUser?.delete();
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again.';
+    }
+  }
 }
-  /// [ReAuthentication] - ReAuthenticate User
 
-  /// [LogoutUser] - Valid for any authenticated
 

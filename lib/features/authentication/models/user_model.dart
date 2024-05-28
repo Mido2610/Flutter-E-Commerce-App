@@ -57,11 +57,11 @@ class UserModel {
   Map<String, dynamic> toJson() {
     return {
       'FirstName': firstName,
-      'lastName': lastName,
-      'username': username,
-      'email': email,
-      'phoneNumber': phoneNumber,
-      'profilePicture': profilePicture,
+      'LastName': lastName,
+      'Username': username,
+      'Email': email,
+      'PhoneNumber': phoneNumber,
+      'ProfilePicture': profilePicture,
     };
   }
 
@@ -71,15 +71,16 @@ class UserModel {
       final data = document.data()!;
       return UserModel(
         id: document.id,
-        firstName: data['FirstName'] ?? '',
-        lastName: data['lastName'] ?? '',
-        username: data['username'] ?? '',
-        email: data['email'] ?? '',
-        phoneNumber: data['phoneNumber'] ?? '',
-        profilePicture: data['profilePicture'] ?? '',
+        firstName: data['FirstName'] ?? '', 
+        lastName: data['LastName'] ?? '',
+        username: data['Username'] ?? '',
+        email: data['Email'] ?? '',
+        phoneNumber: data['PhoneNumber'] ?? '',
+        profilePicture: data['ProfilePicture'] ?? '',
       );
+    } else {
+      return UserModel.empty();
     }
-    throw Exception('Invalid document snapshot'); // Add this line
   }
 
 }
