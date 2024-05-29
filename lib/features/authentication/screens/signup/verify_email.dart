@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:waflo_admin/data/repositories/authentication_repostiory.dart';
+import 'package:waflo_admin/data/repositories/authentication/authentication_repostiory.dart';
 import 'package:waflo_admin/features/authentication/controller/signup/verify_email_controller.dart';
 import 'package:waflo_admin/utils/constants/images_strings.dart';
 import 'package:waflo_admin/utils/helpers/helper_functions.dart';

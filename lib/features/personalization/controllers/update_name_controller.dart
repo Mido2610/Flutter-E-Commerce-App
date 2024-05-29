@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:waflo_admin/data/repositories/user_repository.dart';
+import 'package:waflo_admin/data/repositories/user/user_repository.dart';
 import 'package:waflo_admin/features/personalization/controllers/user_controller.dart';
 import 'package:waflo_admin/features/personalization/screens/profile_setting/profile_setting.dart';
 import 'package:waflo_admin/utils/constants/images_strings.dart';

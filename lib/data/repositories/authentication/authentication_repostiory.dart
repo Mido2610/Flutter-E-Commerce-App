@@ -5,16 +5,16 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:waflo_admin/data/repositories/user_repository.dart';
+import 'package:waflo_admin/data/repositories/user/user_repository.dart';
 import 'package:waflo_admin/features/authentication/screens/login/login.dart';
 import 'package:waflo_admin/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:waflo_admin/features/authentication/screens/signup/verify_email.dart';
 import 'package:waflo_admin/navigation.menu.dart';
 import 'package:waflo_admin/utils/exceptions/format_exceptions.dart';
 
-import '../../utils/exceptions/firebase_auth_exceptions.dart';
-import '../../utils/exceptions/firebase_exceptions.dart';
-import '../../utils/exceptions/platform_exceptions.dart';
+import '../../../utils/exceptions/firebase_auth_exceptions.dart';
+import '../../../utils/exceptions/firebase_exceptions.dart';
+import '../../../utils/exceptions/platform_exceptions.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();

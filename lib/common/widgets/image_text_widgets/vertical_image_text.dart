@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart%20';
+import 'package:waflo_admin/common/widgets/images/circular_image.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
@@ -11,12 +12,14 @@ class VerticalImageText extends StatelessWidget {
     required this.title,
     this.textColor = TColors.white,
     this.backgroundColor,
+    this.isNetworkImage = true,
     this.onTap,
   });
   final String image;
   final String title;
   final Color textColor;
   final Color? backgroundColor;
+  final bool isNetworkImage;
   final void Function()? onTap;
 
   @override
@@ -29,19 +32,19 @@ class VerticalImageText extends StatelessWidget {
         child: Column(
           children: [
             // Circle Icon
-            Container(
-              width: 56,
-              height: 56,
-              padding: const EdgeInsets.all(TSizes.sm),
-              decoration: BoxDecoration(
-                color: backgroundColor ?? (dark ? TColors.white : TColors.dark),
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: Center(
+            CircularImage(
+              image: image,
+              fit: BoxFit.fitWidth,
+              padding: TSizes.sm * 1.4,
+              isNetworkImage: isNetworkImage,
+              backgroundColor: backgroundColor,
+              overlayColor: dark ? TColors.light : TColors.dark
+            ),
+              Center(
                 child: Image(
                     image: AssetImage(image),
                     fit: BoxFit.cover,
-                    color: dark ? TColors.light : TColors.dark),
+                    color: dark ? TColors.light : TColors.dark,
               ),
             ),
             const SizedBox(

@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:waflo_admin/common/widgets/sucess_screen/sucess_screen.dart';
 import 'package:waflo_admin/utils/popups/loaders.dart';
 
-import '../../../../data/repositories/authentication_repostiory.dart';
+import '../../../../data/repositories/authentication/authentication_repostiory.dart';
 import '../../../../utils/constants/images_strings.dart';
 import '../../../../utils/constants/text_strings.dart';
 
