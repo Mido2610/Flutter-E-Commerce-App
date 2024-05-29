@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:waflo_admin/data/repositories/authentication_repostiory.dart';
+import 'package:waflo_admin/data/repositories/authentication/authentication_repostiory.dart';
 import 'package:waflo_admin/features/authentication/screens/login/login.dart';
 import 'package:waflo_admin/features/personalization/screens/profile_setting/widgets/re_authenticate_user_login_form.dart';
 import 'package:waflo_admin/utils/constants/images_strings.dart';
@@ -11,7 +11,7 @@ import 'package:waflo_admin/utils/helpers/network_manager.dart';
 import 'package:waflo_admin/utils/popups/full_screen_loader.dart';
 import 'package:waflo_admin/utils/popups/loaders.dart';
 
-import '../../../data/repositories/user_repository.dart';
+import '../../../data/repositories/user/user_repository.dart';
 import '../../authentication/models/user_model.dart';
 
 class UserController extends GetxController{

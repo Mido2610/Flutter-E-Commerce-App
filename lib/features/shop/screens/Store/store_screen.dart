@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:waflo_admin/common/widgets/brands/brand_card.dart';
-import 'package:waflo_admin/features/shop/screens/Store/widgets/category_tab.dart';
+import 'package:waflo_admin/features/shop/controllers/category_controller.dart';
 import 'package:waflo_admin/features/shop/screens/brand/all_brands.dart';
 import 'package:waflo_admin/features/shop/screens/home/widgets/search_container.dart';
+import 'package:waflo_admin/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:waflo_admin/utils/constants/sizes.dart';
 import 'package:waflo_admin/utils/helpers/helper_functions.dart';
 
@@ -18,8 +19,9 @@ class CreateStoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categories = CategoryController.instance.featuredCategories;
     return DefaultTabController(
-      length: 5,
+      length: categories.length ,
       child: Scaffold(
           appBar: TAppBar(
             title: Text(
@@ -81,26 +83,13 @@ class CreateStoreScreen extends StatelessWidget {
                   ),
 
                   // Tabs
-                  bottom: const TTabBar(
-                    tabs: [
-                      Tab(child: Text('Sports')),
-                      Tab(child: Text('Furniture')),
-                      Tab(child: Text('Electronics')),
-                      Tab(child: Text('Clothes')),
-                      Tab(child: Text('Cosmetics')),
-                    ],
+                  bottom: TTabBar(
+                    tabs: categories.map((category) => Tab(child: Text(category.name))).toList()),
                   ),
-                ),
               ];
             },
-            body: const TabBarView(
-              children: [
-                CategoryTab(),
-                CategoryTab(),
-                CategoryTab(),
-                CategoryTab(),
-                CategoryTab(),
-              ],
+            body:  TabBarView(
+              children: categories.map((category) => TCategoryTab(category: category)).toList(),
             ),
           )),
     );

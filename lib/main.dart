@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get_storage/get_storage.dart';
 import 'app.dart';
-import 'data/repositories/authentication_repostiory.dart';
+import 'data/repositories/authentication/authentication_repostiory.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {

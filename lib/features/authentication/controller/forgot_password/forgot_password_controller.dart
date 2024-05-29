@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:waflo_admin/data/repositories/authentication_repostiory.dart';
+import 'package:waflo_admin/data/repositories/authentication/authentication_repostiory.dart';
 import 'package:waflo_admin/features/authentication/screens/password_configuration/reset_password.dart';
 import 'package:waflo_admin/utils/constants/images_strings.dart';
 import 'package:waflo_admin/utils/helpers/network_manager.dart';

@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:waflo_admin/common/widgets/layouts/grid_layout_product.dart';
 import 'package:waflo_admin/common/widgets/products/products_card/product_card_vertical.dart';
 import 'package:waflo_admin/common/widgets/texts/section_heading.dart';
+import 'package:waflo_admin/features/shop/models/category_model.dart';
 
 import '../../../../../common/widgets/brands/brand_show_case.dart';
 import '../../../../../utils/constants/images_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 
-class CategoryTab extends StatelessWidget {
-  const CategoryTab({
-    super.key,
-  });
+class TCategoryTab extends StatelessWidget {
+  const TCategoryTab({super.key,required this.category});
+  
+  final CategoryModel category;
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:waflo_admin/bindings/general_binding.dart';
+import 'package:waflo_admin/routes/app_routes.dart';
 import 'package:waflo_admin/utils/constants/colors.dart';
 import 'package:waflo_admin/utils/constants/text_strings.dart';
 import 'package:waflo_admin/utils/device/web_master_scroll.dart';
@@ -20,6 +21,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialBinding: GeneralBinding(),
       scrollBehavior: MyCustomScrollBehavior(),
+      getPages: AppRoutes.pages,
       home: const Scaffold(
         backgroundColor: TColors.primary,
         body: Center(

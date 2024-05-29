@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:waflo_admin/data/repositories/authentication_repostiory.dart';
-import 'package:waflo_admin/data/repositories/user_repository.dart';
+import 'package:waflo_admin/data/repositories/authentication/authentication_repostiory.dart';
+import 'package:waflo_admin/data/repositories/user/user_repository.dart';
 import 'package:waflo_admin/features/authentication/screens/signup/verify_email.dart';
 import 'package:waflo_admin/utils/popups/full_screen_loader.dart';
 import 'package:waflo_admin/utils/popups/loaders.dart';
