@@ -2,7 +2,10 @@
 
 
 import 'package:waflo_admin/features/shop/models/banner_model.dart';
+import 'package:waflo_admin/features/shop/models/brand_model.dart';
 import 'package:waflo_admin/features/shop/models/category_model.dart';
+import 'package:waflo_admin/features/shop/models/product_attribute_model.dart';
+import 'package:waflo_admin/features/shop/models/product_model.dart';
 import 'package:waflo_admin/routes/routes.dart';
 import 'package:waflo_admin/utils/constants/images_strings.dart';
 
@@ -84,7 +87,27 @@ class DummyData {
     // Animal
     CategoryModel(id: '26', image: TImages.animalIcon, name: 'Cats', parentId: '4', isFeatured: false),
     CategoryModel(id: '27', image: TImages.animalIcon, name: 'Dogs', parentId: '4', isFeatured: false),
+  ];
 
-    
+  static final List<ProductModel> products = [
+    ProductModel(
+      id: '001',
+      title: 'Green Nike sport shoes',
+      price: 150,
+      stock: 15,
+      thumbnail: TImages.productImage39,
+      images: [TImages.productImage1, TImages.productImage2, TImages.productImage3],
+      description: 'The Nike Air Max 270 delivers visible air under every step. Updated for modern comfort, it nods to the original 1991 Air Max 180 with its exaggerated tongue top and heritage tongue logo.',
+      brand: BrandModel(id: '1', image: TImages.productImage13, name: 'Nike', productsCount: 26, isFeatured: true),
+      salePrice: 30,
+      sku: 'ABR4568',
+      categoryId: '1',
+      productType: 'single',
+      productAttributes: [
+        ProductAttributeModel(name: 'Color', values: ['Green', 'Nike', 'Red']),
+        ProductAttributeModel(name: 'Size', values: ['EU 30', 'EU 32', 'EU 34']),
+
+      ]
+    )
   ];
 }

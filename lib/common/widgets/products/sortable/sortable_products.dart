@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:waflo_admin/features/shop/models/product_model.dart';
 
 import '../../../../utils/constants/sizes.dart';
 import '../../layouts/grid_layout_product.dart';
@@ -42,7 +43,7 @@ class _SortableProductsState extends State<SortableProducts> {
         // Products
         GridLayOutProduct(
           itemCount: 4,
-          itemBuilder: (_, index) => const ProductCardVertical(),
+          itemBuilder: (_, index) => ProductCardVertical(product: ProductModel.empty()),
         ),
       ],
     );

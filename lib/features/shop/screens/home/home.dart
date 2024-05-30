@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:waflo_admin/common/widgets/products/products_card/product_card_vertical.dart';
+import 'package:waflo_admin/common/widgets/shimmers/vertical_product_shimmer.dart';
+import 'package:waflo_admin/features/shop/controllers/product_controller.dart';
 import 'package:waflo_admin/features/shop/screens/all_products/all_products.dart';
 import 'package:waflo_admin/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:waflo_admin/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:waflo_admin/features/shop/screens/home/widgets/promo_slider.dart';
 import 'package:waflo_admin/features/shop/screens/home/widgets/search_container.dart';
-import 'package:waflo_admin/utils/constants/images_strings.dart';
 
 import '../../../../common/widgets/custome_shapes/containers/primary_header_container.dart';
 import '../../../../common/widgets/layouts/grid_layout_product.dart';
@@ -17,6 +18,7 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key,});
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -70,9 +72,16 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: TSizes.spaceBtwItems),
 
                   // Popular Products
-                  GridLayOutProduct(
-                    itemCount: 2,
-                    itemBuilder: (_, index) => const ProductCardVertical(),
+                  Obx(() {
+                    if(controller.isLoading.value) return const VerticalProductShimmer();
+                    if(controller.featuredProducts.isEmpty){
+                      return Center(child: Text('No Data Found', style: Theme.of(context).textTheme.bodyMedium));
+                    }
+                    return GridLayOutProduct(
+                      itemCount: controller.featuredProducts.length,
+                      itemBuilder: (_, index) => ProductCardVertical(product: controller.featuredProducts[index]),
+                    );
+                  }
                   ),
                 ],
               ),

@@ -5,6 +5,7 @@ import 'package:waflo_admin/common/widgets/appbar/appbar.dart';
 import 'package:waflo_admin/common/widgets/icons/circular_icon.dart';
 import 'package:waflo_admin/common/widgets/layouts/grid_layout_product.dart';
 import 'package:waflo_admin/common/widgets/products/products_card/product_card_vertical.dart';
+import 'package:waflo_admin/features/shop/models/product_model.dart';
 import 'package:waflo_admin/features/shop/screens/home/home.dart';
 
 import '../../../../utils/constants/sizes.dart';
@@ -32,7 +33,7 @@ class CreateWishListSCreen extends StatelessWidget {
             children: [
               GridLayOutProduct(
                   itemCount: 4,
-                  itemBuilder: (_, index) => const ProductCardVertical())
+                  itemBuilder: (_, index) => ProductCardVertical(product: ProductModel.empty()))
             ],
           ),
         ),

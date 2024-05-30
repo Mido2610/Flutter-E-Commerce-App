@@ -6,7 +6,6 @@ plugins {
     id 'org.jetbrains.kotlin.android' // remove the version here
 }
 
-
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -30,7 +29,6 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
-
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
@@ -51,7 +49,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.waflo_admin"
-        minSdkVersion 19
+        minSdkVersion flutter.minSdkVersion
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -70,4 +68,5 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.google.firebase:firebase-analytics:17.2.2'
 }

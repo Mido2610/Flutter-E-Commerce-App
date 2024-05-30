@@ -4,6 +4,7 @@ import 'package:waflo_admin/features/shop/models/banner_model.dart';
 import 'package:waflo_admin/utils/popups/loaders.dart';
 
 class BannerController extends GetxController{
+  static BannerController get instance => Get.find();
 
   // Variables
   final isLoading = false.obs;

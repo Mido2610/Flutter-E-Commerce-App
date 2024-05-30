@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:waflo_admin/data/repositories/categories/category_repository.dart';
 import 'package:waflo_admin/features/shop/models/category_model.dart';
-import 'package:waflo_admin/utils/popups/full_screen_loader.dart';
 import 'package:waflo_admin/utils/popups/loaders.dart';
 
 class CategoryController extends GetxController {
