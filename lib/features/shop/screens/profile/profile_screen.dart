@@ -7,6 +7,7 @@ import 'package:waflo_admin/common/widgets/texts/section_heading.dart';
 import 'package:waflo_admin/data/repositories/authentication/authentication_repostiory.dart';
 import 'package:waflo_admin/features/personalization/screens/address/address.dart';
 import 'package:waflo_admin/features/personalization/screens/profile_setting/profile_setting.dart';
+import 'package:waflo_admin/features/personalization/screens/profile_setting/widgets/profile_update_screen.dart';
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/list_titles/user_profile_tile.dart';
 import '../../../../utils/constants/colors.dart';
@@ -105,10 +106,11 @@ class CreateProfileScreen extends StatelessWidget {
                 const SectionHeadingBar(
                     title: 'App Setting', showActionButton: false),
                 const SizedBox(height: TSizes.spaceBtwItems),
-                const SettingMenuTile(
+               SettingMenuTile(
                     icon: Iconsax.document_upload,
                     title: 'Load Data',
-                    subtitle: 'Upload data to your Cloud Firebase'),
+                    subtitle: 'Upload data to your Cloud Firebase',
+                    onTap: () => Get.to(() =>  const UploadLoadDataScreen())),
                 SettingMenuTile(
                   icon: Iconsax.location,
                   title: 'Geolocation',
