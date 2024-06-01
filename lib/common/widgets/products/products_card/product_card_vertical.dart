@@ -51,6 +51,7 @@ class ProductCardVertical extends StatelessWidget {
                       imageUrl: product.thumbnail, applyImageRadius: true, isNetworkImage: true),
 
                   // Sale tag
+                  if(salePercentage != null)
                   Positioned(
                     top: 12,
                     child: RoundedContainer(
@@ -59,7 +60,7 @@ class ProductCardVertical extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           horizontal: TSizes.sm, vertical: TSizes.xs),
                       child: Text(
-                        '$salePercentage',
+                        '$salePercentage%',
                         style: Theme.of(context)
                             .textTheme
                             .labelLarge!

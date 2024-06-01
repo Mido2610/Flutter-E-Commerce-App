@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:waflo_admin/data/repositories/categories/category_repository.dart';
+import 'package:waflo_admin/data/repositories/product/product_repository.dart';
 import 'package:waflo_admin/features/shop/models/category_model.dart';
+import 'package:waflo_admin/features/shop/models/product_model.dart';
 import 'package:waflo_admin/utils/popups/loaders.dart';
 
 class CategoryController extends GetxController {
@@ -38,7 +40,17 @@ class CategoryController extends GetxController {
     } finally {
       // Remove loader
       isLoading.value = false;
-      
     }
+  }
+
+  // Load selected category data
+
+
+  // Get Category or sub-category products
+  Future<List<ProductModel>> getCategoryProducts({required String categoryId, int limit = 4}) async {
+    // Fetch limited (4) products against each subCategory
+    final products = await ProductRepository.instance.getProductsForCategory(categoryId: categoryId, limit: limit);
+    return products;
+
   }
 }
