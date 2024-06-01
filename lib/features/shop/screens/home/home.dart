@@ -31,7 +31,6 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: TSizes.spaceBtwSections),
 
                   //Search Bar
-
                   SearchContainer(text: 'Search'),
                   SizedBox(height: TSizes.spaceBtwSections),
 
@@ -41,13 +40,11 @@ class HomeScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         // Heading
-
                         SectionHeadingBar(
                           title: 'Popular Categories',
                           showActionButton: false,
                         ),
                         SizedBox(height: TSizes.spaceBtwItems),
-
                         //Categories
                         HomeCategories()
                       ],
