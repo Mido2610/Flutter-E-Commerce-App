@@ -11,6 +11,7 @@ import 'package:waflo_admin/features/authentication/screens/onboarding/onboardin
 import 'package:waflo_admin/features/authentication/screens/signup/verify_email.dart';
 import 'package:waflo_admin/navigation.menu.dart';
 import 'package:waflo_admin/utils/exceptions/format_exceptions.dart';
+import 'package:waflo_admin/utils/local_storage/storage_utility.dart';
 
 import '../../../utils/exceptions/firebase_auth_exceptions.dart';
 import '../../../utils/exceptions/firebase_exceptions.dart';
@@ -42,6 +43,9 @@ class AuthenticationRepository extends GetxController {
     if (user != null) {
       // If the user is logged in 
       if (user.emailVerified) {
+
+        // Initialise User Specific Storage
+        await TLocalStorage.init(user.uid);
         // If the user's email is verified
         Get.offAll(() => const NavigationMenu());
       } else {

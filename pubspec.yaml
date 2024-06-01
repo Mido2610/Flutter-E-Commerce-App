@@ -54,6 +54,7 @@ dependencies:
   data_table_2: ^2.5.9
   url_strategy: ^0.2.0
   firebase_app_check: ^0.2.2+6
+  logging: ^1.2.0
 
 
 dev_dependencies:
