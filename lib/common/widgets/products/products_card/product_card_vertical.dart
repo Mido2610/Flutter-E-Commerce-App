@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:waflo_admin/common/styles/shadows.dart';
@@ -8,7 +7,7 @@ import 'package:waflo_admin/common/widgets/icons/circular_icon.dart';
 import 'package:waflo_admin/common/widgets/images/rounded_image.dart';
 import 'package:waflo_admin/common/widgets/texts/brand_title_text_with_verified_icon.dart';
 import 'package:waflo_admin/common/widgets/texts/product_title_text.dart';
-import 'package:waflo_admin/features/shop/controllers/product_controller.dart';
+import 'package:waflo_admin/features/shop/controllers/product/product_controller.dart';
 import 'package:waflo_admin/features/shop/models/product_model.dart';
 import 'package:waflo_admin/utils/constants/enums.dart';
 import 'package:waflo_admin/utils/constants/sizes.dart';

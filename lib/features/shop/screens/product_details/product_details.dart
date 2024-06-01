@@ -10,6 +10,7 @@ import 'package:waflo_admin/features/shop/screens/product_details/widgets/produc
 import 'package:waflo_admin/features/shop/screens/product_details/widgets/product_image_slider.dart';
 import 'package:waflo_admin/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:waflo_admin/features/shop/screens/product_details/widgets/product_rating_share.dart';
+import 'package:waflo_admin/utils/constants/enums.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../product_review/product_review.dart';
 
@@ -26,10 +27,8 @@ class ProductDetailScreen extends StatelessWidget {
         child: Column(
           children: [
             // Product Image Slider
-            const ProductImageSlider(),
-
+            ProductImageSlider(product: product),
             // Product Details
-
             Padding(
                 padding: const EdgeInsets.only(
                     right: TSizes.defaultSpace,
@@ -41,11 +40,11 @@ class ProductDetailScreen extends StatelessWidget {
                     const RatingAndShare(),
 
                     //    Price, Title, Stock & Brand
-                    const ProductMetaData(),
+                    ProductMetaData(product: product),
 
                     // Attributes
-                    const ProductAttributes(),
-                    const SizedBox(height: TSizes.spaceBtwSections),
+                    if(product.productType == ProductType.variable.toString()) ProductAttributes(product: product),
+                    if(product.productType == ProductType.variable.toString()) const SizedBox(height: TSizes.spaceBtwSections),
 
                     // Checkout button
                     SizedBox(
@@ -58,14 +57,14 @@ class ProductDetailScreen extends StatelessWidget {
                     const SectionHeadingBar(
                         title: 'Description', showActionButton: false),
                     const SizedBox(height: TSizes.spaceBtwItems),
-                    const ReadMoreText(
-                      'Flutter is Googles mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.',
+                    ReadMoreText(
+                      product.description ?? '',
                       trimLines: 2,
                       trimMode: TrimMode.Line,
                       trimCollapsedText: ' Show more',
                       trimExpandedText: ' Show less',
-                      moreStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
-                      lessStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                      moreStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                      lessStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                     ),
 
                     // Reviews
