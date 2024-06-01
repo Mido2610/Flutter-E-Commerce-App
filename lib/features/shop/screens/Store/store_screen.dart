@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:waflo_admin/common/widgets/brands/brand_card.dart';
+import 'package:waflo_admin/common/widgets/shimmers/brand_shimmer.dart';
+import 'package:waflo_admin/features/shop/controllers/brand_controller.dart';
 import 'package:waflo_admin/features/shop/controllers/category_controller.dart';
 import 'package:waflo_admin/features/shop/screens/brand/all_brands.dart';
+import 'package:waflo_admin/features/shop/screens/brand/brand_product.dart';
 import 'package:waflo_admin/features/shop/screens/home/widgets/search_container.dart';
 import 'package:waflo_admin/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:waflo_admin/utils/constants/sizes.dart';
@@ -20,6 +23,7 @@ class CreateStoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final categories = CategoryController.instance.featuredCategories;
+    final brandController = Get.put(BrandController());
     return DefaultTabController(
       length: categories.length ,
       child: Scaffold(
@@ -68,16 +72,29 @@ class CreateStoreScreen extends StatelessWidget {
                           onPressed: () => Get.to(() => const AllBrandScreen()),
                         ),
                         const SizedBox(height: TSizes.spaceBtwItems / 1.5),
+                      // Brand grid
 
-                        GridLayOutProduct(
-                          itemCount: 4,
-                          mainAxisExtent: 80,
-                          itemBuilder: (_, index) {
-                            return const BrandCard(
-                              showBorder: true,
-                            );
-                          },
-                        ),
+                        Obx(
+                          () { 
+                            if (brandController.isLoading.value) return const BrandShimmer();
+                            if(brandController.featureBrands.isEmpty){
+                              return Center(
+                                child: Text('No Brands Found', style: Theme.of(context).textTheme.bodyMedium!.apply(color: Colors.white)),
+                              );
+                            }
+                            return GridLayOutProduct(
+                            itemCount: brandController.featureBrands.length,
+                            mainAxisExtent: 80,
+                            itemBuilder: (_, index) {
+                              final brand = brandController.featureBrands[index];
+                              return BrandCard(
+                                showBorder: true,
+                                brand: brand, 
+                                onTap: () => Get.to(() => BrandProduct(brand: brand))
+                              );
+                            },
+                          );
+                        }),
                       ],
                     ),
                   ),
