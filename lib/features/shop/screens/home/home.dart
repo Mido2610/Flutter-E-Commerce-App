@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:waflo_admin/common/widgets/products/products_card/product_card_vertical.dart';
 import 'package:waflo_admin/common/widgets/shimmers/vertical_product_shimmer.dart';
-import 'package:waflo_admin/features/shop/controllers/product_controller.dart';
+import 'package:waflo_admin/features/shop/controllers/product/product_controller.dart';
 import 'package:waflo_admin/features/shop/screens/all_products/all_products.dart';
 import 'package:waflo_admin/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:waflo_admin/features/shop/screens/home/widgets/home_categories.dart';

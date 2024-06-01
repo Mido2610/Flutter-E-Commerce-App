@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:waflo_admin/features/authentication/controller/forgot_password/forgot_password_controller.dart';
-import 'package:waflo_admin/features/authentication/screens/password_configuration/reset_password.dart';
 import 'package:waflo_admin/utils/validators/validation.dart';
 
 import '../../../../utils/constants/sizes.dart';
