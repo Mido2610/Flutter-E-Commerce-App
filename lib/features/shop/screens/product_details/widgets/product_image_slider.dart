@@ -1,14 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:waflo_admin/common/widgets/appbar/appbar.dart';
+import 'package:waflo_admin/common/widgets/products/favourite_icon/favourite_icon.dart';
 import 'package:waflo_admin/features/shop/controllers/product/images_controller.dart';
 import 'package:waflo_admin/features/shop/models/product_model.dart';
 import 'package:waflo_admin/utils/helpers/helper_functions.dart';
 
 import '../../../../../common/widgets/custome_shapes/curved_edges/curved_edges_widget.dart';
-import '../../../../../common/widgets/icons/circular_icon.dart';
 import '../../../../../common/widgets/images/rounded_image.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
@@ -83,7 +82,7 @@ class ProductImageSlider extends StatelessWidget {
             TAppBar(
               showBackArrow: true,
               actions: [
-                CircularIcon(icon: Iconsax.heart, onPressed: () {}, color: Colors.red )
+                FavouriteIcon(productId: product.id),
               ],
             )
           ],

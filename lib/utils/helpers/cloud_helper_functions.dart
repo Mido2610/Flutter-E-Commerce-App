@@ -1,5 +1,4 @@
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
+
 import 'dart:io';
 
 import 'package:firebase_storage/firebase_storage.dart';
@@ -92,7 +91,7 @@ class TCloudHelperFunctions {
   }
 
   /// Upload any Image using File
-  static Future<String> uploadImageFile({required html.File file, required String path, required String imageName}) async {
+  static Future<String> uploadImageFile({required File file, required String path, required String imageName}) async {
     try {
       final ref = FirebaseStorage.instance.ref(path).child(imageName);
       await ref.putBlob(file);
