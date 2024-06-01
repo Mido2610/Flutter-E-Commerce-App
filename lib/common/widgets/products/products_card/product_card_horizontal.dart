@@ -6,18 +6,24 @@ import 'package:waflo_admin/common/widgets/products/favourite_icon/favourite_ico
 import 'package:waflo_admin/common/widgets/texts/brand_title_text_with_verified_icon.dart';
 import 'package:waflo_admin/common/widgets/texts/product_price_text.dart';
 import 'package:waflo_admin/common/widgets/texts/product_title_text.dart';
+import 'package:waflo_admin/features/shop/controllers/product/product_controller.dart';
+import 'package:waflo_admin/features/shop/models/product_model.dart';
+import 'package:waflo_admin/utils/constants/enums.dart';
 
 import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/images_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 
 class ProductCardHorizontal extends StatelessWidget {
-  const ProductCardHorizontal({super.key,});
+  const ProductCardHorizontal({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
+    final controller = ProductController.instance;
+    final salePercentage = controller.calculateSalePercentage(product.price, product.salePrice);
     return Container(
         width: 310,
         padding: const EdgeInsets.all(1),
@@ -34,12 +40,13 @@ class ProductCardHorizontal extends StatelessWidget {
                 backgroundColor: dark ? TColors.dark : TColors.light,
                 child: Stack(
                   children: [
-                    const SizedBox(
+                    SizedBox(
                       height: 120,
                       width: 120,
                       child: RoundedImage(
-                          imageUrl: TImages.productImage39,
-                          applyImageRadius: true),
+                          imageUrl: product.thumbnail,
+                          applyImageRadius: true,
+                          isNetworkImage: true),
                     ),
                     // -- Sale tag
                     Positioned(
@@ -49,7 +56,7 @@ class ProductCardHorizontal extends StatelessWidget {
                           backgroundColor: TColors.secondary.withOpacity(0.8),
                           padding: const EdgeInsets.symmetric(
                               horizontal: TSizes.sm, vertical: TSizes.xs),
-                          child: Text('25%',
+                          child: Text('$salePercentage%',
                               style: Theme.of(context)
                                   .textTheme
                                   .labelLarge!
@@ -57,10 +64,10 @@ class ProductCardHorizontal extends StatelessWidget {
                         )),
 
                     // --Favourite Icon Button
-                    const Positioned(
+                    Positioned(
                         top: 0,
                         right: 0,
-                        child: FavouriteIcon(productId: '')
+                        child: FavouriteIcon(productId: product.id)
                       ),
                   ],
                 )),
@@ -72,36 +79,49 @@ class ProductCardHorizontal extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children:  [
-                        ProductTitleText(
-                            title: 'Red Nike Air Max 270', smallSize: true),
-                        SizedBox(height: TSizes.spaceBtwItems / 2),
-                        BrandTitleTextWithVerifiedIcon(title: 'Nike')
+                        ProductTitleText(title: product.title, smallSize: true),
+                        const SizedBox(height: TSizes.spaceBtwItems / 2),
+                        BrandTitleTextWithVerifiedIcon(title: product.brand!.name)
                       ],
                     ),
                     const Spacer(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        // Pricing
-                        const Flexible(child: ProductPriceText(price: '250.000')),
-                        // Add to cart
+                        // Price
+                        Flexible(
+                          child: Column(
+                            children: [
+                              if (product.productType == ProductType.single.toString() && product.salePrice > 0)
+                                Padding(
+                                  padding: const EdgeInsets.only(left: TSizes.sm),
+                                  child: Text(
+                                    product.price.toString(),
+                                    style: Theme.of(context).textTheme.labelMedium!.apply(decoration: TextDecoration.lineThrough),
+                                  ),
+                                ),
+                              Padding(
+                                  padding: const EdgeInsets.only(left: TSizes.sm),
+                                  child: ProductPriceText(price: controller.getProductPrice(product))),
+                            ],
+                          ),
+                        ),
+                        // Add to Cart Button
                         Container(
                           decoration: const BoxDecoration(
-                            color: TColors.black,
+                            color: TColors.dark,
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(TSizes.cardRadiusMd),
-                              bottomRight:
-                                  Radius.circular(TSizes.productImageRadius),
+                              bottomRight: Radius.circular(TSizes.productImageRadius),
                             ),
                           ),
                           child: const SizedBox(
-                            width: TSizes.iconLg * 1.2,
-                            height: TSizes.iconLg * 1.2,
-                            child: Center(child: Icon(Iconsax.add, color: TColors.white))
-                          )
+                              width: TSizes.iconLg * 1.2,
+                              height: TSizes.iconLg * 1.2,
+                              child: Center(child: Icon(Iconsax.add, color: TColors.white))),
                         ),
                       ],
                     ),

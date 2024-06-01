@@ -7,7 +7,7 @@ import 'package:waflo_admin/utils/local_storage/storage_utility.dart';
 import 'package:waflo_admin/utils/popups/loaders.dart';
 
 class FavouritesController extends GetxController {
-  static FavouritesController instance = Get.find();
+  static FavouritesController get instance => Get.find();
 
   // Variables
   final favourites = <String, bool>{}.obs;

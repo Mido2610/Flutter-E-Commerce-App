@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:waflo_admin/features/shop/models/category_model.dart';
+import 'package:waflo_admin/features/shop/models/product_category_model.dart';
 import 'package:waflo_admin/utils/exceptions/firebase_exceptions.dart';
 import 'package:waflo_admin/utils/exceptions/firebase_storage_service.dart';
 import 'package:waflo_admin/utils/exceptions/platform_exceptions.dart';
@@ -27,9 +28,21 @@ class CategoryRepository extends GetxController {
       throw 'Something went wrong. Please try again.';
     }
   }
+  Future<List<CategoryModel>> getSubCategories(String categoryId) async{
+    try {
+      final snapshot = await _db.collection("Categories").where('ParentId', isEqualTo: categoryId).get();
+      final result = snapshot.docs.map((e) => CategoryModel.fromSnapshot(e)).toList();
+      return result;
+    } on FirebaseException catch(e) {
+      throw TFirebaseException(e.code).message;
+    } on PlatformException catch(e) {
+      throw TPlatformException(e.code).message;
+    } catch(e) {
+      throw 'Something went wrong. Please try again.';
+    }
+  }
 
-  // Upoad Categories to the Cloud Firebase
-
+  // Upoad Categories to the Cloud Firebase 
   Future<void> uploadDummyData(List<CategoryModel> categories) async{
     try {
       // Upload all the categories along with their Images
@@ -56,5 +69,9 @@ class CategoryRepository extends GetxController {
     } catch(e) {
       throw 'Something went wrong. Please try again.';
     }
+  }
+
+  // Upload Categories to the Cloud Firebase with dummy data
+  Future<void> uploadProductCategoryDummyData(List<ProductCategoryModel> productCategory) async {
   }
 }

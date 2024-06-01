@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'dart:developer';
+
 
 
 /// Helper functions for cloud-related operations.
@@ -116,10 +118,10 @@ class TCloudHelperFunctions {
       Reference ref = FirebaseStorage.instance.refFromURL(downloadUrl);
       await ref.delete();
 
-      print('File deleted successfully.');
+      log('File deleted successfully.');
     } on FirebaseException catch (e) {
       if (e.code == 'object-not-found') {
-        print('The file does not exist in Firebase Storage.');
+        log('The file does not exist in Firebase Storage.');
       } else {
         throw e.message!;
       }

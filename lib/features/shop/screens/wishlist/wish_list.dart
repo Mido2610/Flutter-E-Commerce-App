@@ -8,7 +8,6 @@ import 'package:waflo_admin/common/widgets/loaders/animation_loader.dart';
 import 'package:waflo_admin/common/widgets/products/products_card/product_card_vertical.dart';
 import 'package:waflo_admin/common/widgets/shimmers/vertical_product_shimmer.dart';
 import 'package:waflo_admin/features/shop/controllers/product/favourites_controller.dart';
-import 'package:waflo_admin/features/shop/models/product_model.dart';
 import 'package:waflo_admin/features/shop/screens/home/home.dart';
 import 'package:waflo_admin/navigation.menu.dart';
 import 'package:waflo_admin/utils/constants/images_strings.dart';
