@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart%20';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:waflo_admin/common/widgets/shimmers/category_shimmer.dart';
 import 'package:waflo_admin/features/shop/controllers/category_controller.dart';
@@ -8,9 +8,7 @@ import '../../../../../utils/constants/colors.dart';
 import '../../sub_category/sub_categories.dart';
 
 class HomeCategories extends StatelessWidget {
-  const HomeCategories({
-    super.key,
-  });
+  const HomeCategories({super.key});
 
   @override
   Widget build(BuildContext context) {

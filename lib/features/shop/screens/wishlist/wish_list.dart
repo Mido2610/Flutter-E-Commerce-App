@@ -20,7 +20,7 @@ class CreateWishListSCreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = FavouritesController.instance;
+    final controller = Get.put(FavouritesController());
     return Scaffold(
       appBar: TAppBar(
         title: Text(

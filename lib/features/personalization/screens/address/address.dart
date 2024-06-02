@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:waflo_admin/common/widgets/appbar/appbar.dart';
+import 'package:waflo_admin/features/personalization/controllers/address_controller.dart';
 import 'package:waflo_admin/features/personalization/screens/address/widgets/single_address.dart';
+import 'package:waflo_admin/utils/helpers/cloud_helper_functions.dart';
 
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
@@ -13,6 +15,7 @@ class UserAddressScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(AddressController());
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () => Get.to(() => const AddNewAddressScreen()),
@@ -23,15 +26,28 @@ class UserAddressScreen extends StatelessWidget {
         showBackArrow: true,
         title: Text('Addresses', style: Theme.of(context).textTheme.headlineSmall),
       ),
-      body:  const SingleChildScrollView(
+      body:  SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(TSizes.defaultSpace),
-          child: Column(
-            children: [
-              SingleAddress(selectedAddress: true),
-              SingleAddress(selectedAddress: false),
-
-            ],
+          padding: const EdgeInsets.all(TSizes.defaultSpace),
+          child: Obx(
+            () => FutureBuilder(
+              key: Key(controller.refreshData.value.toString()),
+              future: controller.getAllUserAddresses(),
+              builder: (context, snapshot) {
+            
+                // Helper Function: Handle Loader, No Record, Or Error Message
+                final response = TCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot);
+                if (response != null) return response;
+                final addresses = snapshot.data!;
+                return ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: addresses.length,
+                  itemBuilder: (_, index) => SingleAddress(
+                    address: addresses[index], 
+                    onTap: () => controller.selectAddress(addresses[index]))
+                );
+              }
+            ),
           )
         )
       )
