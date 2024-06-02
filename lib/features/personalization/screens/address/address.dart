@@ -44,7 +44,8 @@ class UserAddressScreen extends StatelessWidget {
                   itemCount: addresses.length,
                   itemBuilder: (_, index) => SingleAddress(
                     address: addresses[index], 
-                    onTap: () => controller.selectAddress(addresses[index]))
+                    onTap: () => controller.selectAddress(addresses[index]),
+                    onDelete: () => controller.deleteAddress(addresses[index].id))
                 );
               }
             ),

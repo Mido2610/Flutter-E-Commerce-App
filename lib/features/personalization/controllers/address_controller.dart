@@ -110,6 +110,15 @@ class AddressController extends GetxController {
       TLoaders.errorSnackBar(title: 'Address Not Found', message: e.toString());
     }
   }
+    Future deleteAddress(String addressId) async {
+    try {
+      await addressRepository.deleteAddress(addressId);
+      TLoaders.successSnackBar(title: 'Success', message: 'Address deleted successfully');
+      refreshData.toggle();
+    } catch (e) {
+      TLoaders.errorSnackBar(title: 'Error', message: e.toString());
+    }
+  }
 
   void resetFormFields() {
     name.clear();

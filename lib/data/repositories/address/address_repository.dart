@@ -13,7 +13,7 @@ class AddressRepository extends GetxController {
       final userId = AuthenticationRepository.instance.authUser!.uid;
       if(userId.isEmpty) throw 'Unable to find user information . Try again in few minutes.';
 
-      final result = await _db.collection('Users').doc(userId).collection('Address').get();
+      final result = await _db.collection('Users').doc(userId).collection('Addresses').get();
       return result.docs.map((documentSnapshot) => AddressModel.fromDocumentSnapshot(documentSnapshot)).toList();
 
     } catch (e) {
@@ -40,6 +40,14 @@ class AddressRepository extends GetxController {
       return currentAddress.id;
     } catch (e) {
       throw 'Something went wrong. Please try again.';
+    }
+  }
+  Future<void> deleteAddress(String addressId) async {
+    try {
+      final userId = AuthenticationRepository.instance.authUser!.uid;
+      await _db.collection('Users').doc(userId).collection('Addresses').doc(addressId).delete();
+    } catch (e) {
+      throw 'Unable to delete address. Please try again.';
     }
   }
 }
