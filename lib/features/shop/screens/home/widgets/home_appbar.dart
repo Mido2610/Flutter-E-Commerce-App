@@ -32,12 +32,7 @@ class HomeAppBar extends StatelessWidget {
                 // Display a shimmer loader while user profile is being loaded
                 return const TShimmerEffect(width: 80, height: 15);
               } else {
-                return Text(
-                  controller.user.value.fullName,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineSmall!
-                      .apply(color: TColors.white),
+                return Text(controller.user.value.fullName, style: Theme.of(context).textTheme.headlineSmall!.apply(color: TColors.white),
                 );
               }
             },
@@ -45,7 +40,7 @@ class HomeAppBar extends StatelessWidget {
         ],
       ),
       actions: [
-        CartCounterIcon(onPressed: () {}, iconColor: TColors.white),
+        CartCounterIcon(onPressed: () {}, iconColor: TColors.white, counterBgColor: TColors.black, counterTextColor: TColors.white),
       ],
     );
   }
