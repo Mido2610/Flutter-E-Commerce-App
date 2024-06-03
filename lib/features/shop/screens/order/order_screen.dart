@@ -12,7 +12,7 @@ class OrderScreen extends StatelessWidget {
     return Scaffold(
       // -Appbabr
       appBar: TAppBar(
-        title: Text('Order', style: Theme.of(context).textTheme.headlineSmall),
+        title: Text('My Orders', style: Theme.of(context).textTheme.headlineSmall),
         showBackArrow: true,
       ),
       body: const Padding(

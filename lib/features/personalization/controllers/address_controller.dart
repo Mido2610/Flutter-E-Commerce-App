@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:waflo_admin/common/widgets/loaders/circular_loader.dart';
+import 'package:waflo_admin/common/widgets/texts/section_heading.dart';
 import 'package:waflo_admin/data/repositories/address/address_repository.dart';
 import 'package:waflo_admin/features/personalization/model/address_model.dart';
+import 'package:waflo_admin/features/personalization/screens/address/add_new_address.dart';
+import 'package:waflo_admin/features/personalization/screens/address/widgets/single_address.dart';
 import 'package:waflo_admin/utils/constants/images_strings.dart';
+import 'package:waflo_admin/utils/constants/sizes.dart';
+import 'package:waflo_admin/utils/helpers/cloud_helper_functions.dart';
 import 'package:waflo_admin/utils/helpers/network_manager.dart';
 import 'package:waflo_admin/utils/popups/full_screen_loader.dart';
 import 'package:waflo_admin/utils/popups/loaders.dart';
@@ -118,6 +123,45 @@ class AddressController extends GetxController {
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Error', message: e.toString());
     }
+  }
+
+  // Show address ModalBottomSheet at checkout
+  Future<dynamic> selectNewAddressPopup(BuildContext context){
+    return showModalBottomSheet(
+      context: context, 
+      builder: (_) => Container(
+        padding: const EdgeInsets.all(TSizes.lg),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SectionHeadingBar(title: 'Select Address', showActionButton: false),
+            FutureBuilder(
+              future: getAllUserAddresses(), 
+              builder: (_, snapshot) {
+                final response = TCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot);
+                if(response != null) return response;
+                return ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: snapshot.data!.length,
+                  itemBuilder: (_, index) => SingleAddress(
+                    address: snapshot.data![index], 
+                    onTap: () async {
+                      await selectAddress(snapshot.data![index]);
+                      Get.back();
+                    }, 
+                  )
+                );
+              }
+            ),
+            const SizedBox(height: TSizes.defaultSpace * 2),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(onPressed: () => Get.to(() => const AddNewAddressScreen()), child: const Text('Add new address')),
+            )
+          ],
+        )
+      )
+    );
   }
 
   void resetFormFields() {

@@ -14,12 +14,12 @@ class SingleAddress extends StatelessWidget {
     super.key,
     required this.address,
     required this.onTap,
-    required this.onDelete,
+    this.onDelete,
   });
 
   final AddressModel address;
   final VoidCallback onTap;
-  final VoidCallback onDelete;
+  final VoidCallback? onDelete;
 
   @override
   Widget build(BuildContext context) {

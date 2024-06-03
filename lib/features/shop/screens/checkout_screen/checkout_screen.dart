@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:waflo_admin/common/widgets/appbar/appbar.dart';
 import 'package:waflo_admin/common/widgets/containers/rounded_container.dart';
-import 'package:waflo_admin/common/widgets/sucess_screen/sucess_screen.dart';
+import 'package:waflo_admin/features/shop/controllers/product/cart_controller.dart';
+import 'package:waflo_admin/features/shop/controllers/product/order_controller.dart';
 import 'package:waflo_admin/features/shop/screens/cart/widgets/cart_item_view.dart';
 import 'package:waflo_admin/features/shop/screens/checkout_screen/widgets/billing_amount_section.dart';
 import 'package:waflo_admin/features/shop/screens/checkout_screen/widgets/billing_payment_section.dart';
-import 'package:waflo_admin/navigation.menu.dart';
+import 'package:waflo_admin/utils/helpers/pricing_calculator.dart';
+import 'package:waflo_admin/utils/popups/loaders.dart';
 
 import '../../../../common/widgets/products/cart/coupon_widget.dart';
 import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/images_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 
@@ -21,11 +22,15 @@ class CheckOutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cartController = CartController.instance;
+    final subTotal = cartController.totalCartPrice.value;
+    final orderController = Get.put(OrderController());
+    final totalAmount = TPricingCalculator.calculateTotalPrice(subTotal, 'US');
     final dark = THelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: TAppBar(
         showBackArrow: true,
-        title: Text('Kiểm Tra Đơn Hàng',
+        title: Text('Order Review',
             style: Theme.of(context).textTheme.headlineSmall),
       ),
       body: SingleChildScrollView(
@@ -71,17 +76,12 @@ class CheckOutScreen extends StatelessWidget {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(TSizes.defaultSpace),
         child: ElevatedButton(
-          onPressed: () => Get.to(() => SucessSreen(
-                title: 'Thanh toán thành công!',
-                image: TImages.sucessPayment,
-                subTitle: 'Hàng của bạn sẽ được vận chuyển',
-                onPressed: () => Get.offAll(() => const NavigationMenu()),
-              )),
-            
+          onPressed: subTotal > 0 
+            ? () => orderController.processOrder(totalAmount)
+            : () => TLoaders.warningSnackBar(title: 'Empty Cart', message: 'Please add some items in cart'),         
           style: ElevatedButton.styleFrom(
-            backgroundColor: TColors.primary,
           ),
-          child: const Text('Checkout 250.000 đ'),
+          child: Text('Checkout \$$totalAmount'),
         ),
       ),
     );

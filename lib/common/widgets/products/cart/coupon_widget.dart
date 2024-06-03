@@ -23,7 +23,7 @@ class CouponCode extends StatelessWidget {
           Flexible(
             child: TextFormField(
               decoration: const InputDecoration(
-                hintText: 'Nhập mã giảm giá',
+                hintText: 'Input coupon code',
                 border: InputBorder.none,
                 focusedBorder: InputBorder.none,
                 enabledBorder: InputBorder.none,
