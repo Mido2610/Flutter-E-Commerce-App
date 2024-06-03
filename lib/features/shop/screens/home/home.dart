@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:waflo_admin/common/widgets/custome_shapes/curved_edges/curved_edges_widget.dart';
 import 'package:waflo_admin/common/widgets/products/products_card/product_card_vertical.dart';
 import 'package:waflo_admin/common/widgets/shimmers/vertical_product_shimmer.dart';
 import 'package:waflo_admin/features/shop/controllers/product/product_controller.dart';
@@ -28,6 +29,7 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   // Appar
                   HomeAppBar(),
+                  
                   SizedBox(height: TSizes.spaceBtwSections),
 
                   //Search Bar

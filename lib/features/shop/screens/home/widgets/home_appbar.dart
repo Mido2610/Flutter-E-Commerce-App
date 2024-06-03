@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:waflo_admin/common/widgets/appbar/appbar.dart';
+import 'package:waflo_admin/common/widgets/custome_shapes/curved_edges/curved_edges_widget.dart';
 import 'package:waflo_admin/common/widgets/shimmers/shimmer.dart';
 import 'package:waflo_admin/features/personalization/controllers/user_controller.dart';
 
@@ -19,6 +20,7 @@ class HomeAppBar extends StatelessWidget {
     return TAppBar(
       title: Column(
         children: [
+          const CurvedEdgeWidget(),
           Text(
             TTexts.homeAppBarTitle,
             style: Theme.of(context)
