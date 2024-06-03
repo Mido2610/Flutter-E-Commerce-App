@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart%20';
+import 'package:flutter/material.dart';
 import 'package:waflo_admin/common/widgets/images/circular_image.dart';
 
 import '../../../utils/constants/colors.dart';
