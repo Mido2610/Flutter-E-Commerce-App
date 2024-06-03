@@ -36,7 +36,7 @@ class VerifyEmailScreen extends StatelessWidget {
                 // Image
 
                 Image(
-                  image: const AssetImage(TImages.deliveryMailIllustration),
+                  image: const AssetImage(TImages.deliveredEmailIllustration),
                   width: THelperFunctions.screenWidth() * 0.6,
                 ),
                 const SizedBox(height: TSizes.spaceBtwSections),

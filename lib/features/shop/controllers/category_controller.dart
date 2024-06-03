@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:waflo_admin/data/repositories/categories/category_repository.dart';
 import 'package:waflo_admin/data/repositories/product/product_repository.dart';
-import 'package:waflo_admin/data/services/dummy_data.dart';
 import 'package:waflo_admin/features/shop/models/category_model.dart';
 import 'package:waflo_admin/features/shop/models/product_model.dart';
 import 'package:waflo_admin/utils/popups/loaders.dart';
@@ -17,7 +16,6 @@ class CategoryController extends GetxController {
   @override
   void onInit(){
     fetchCategories();
-    uploadCategories(DummyData.categories);
     super.onInit();
   }
 
@@ -37,6 +35,9 @@ class CategoryController extends GetxController {
       //Filters featured categories
       featuredCategories.assignAll(allCategories.where((category) => category.isFeatured && category.parentId.isEmpty).take(8).toList());
 
+      // Show success message 
+      TLoaders.successSnackBar(title: 'Success', message: 'Your Categories have been uploaded successfully');
+
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     } finally {
@@ -45,17 +46,6 @@ class CategoryController extends GetxController {
     }
   }
   
-  Future<void> uploadCategories(List<CategoryModel> categories) async {
-    try {
-      isLoading.value = true;
-      await _categoryRepository.uploadDummyData(categories);
-      TLoaders.successSnackBar(title: 'Success', message: 'Categories uploaded successfully.');
-    } catch (e) {
-      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
-    } finally {
-      isLoading.value = false;
-    }
-  }
 
   // Load selected category data
     Future<List<CategoryModel>> getSubCategory(String categoryId) async {

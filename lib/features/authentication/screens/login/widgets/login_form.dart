@@ -52,7 +52,6 @@ class LoginForm extends StatelessWidget {
             const SizedBox(height: TSizes.spaceBtwInputFields / 2),
 
             // Remember me & Forgot password
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

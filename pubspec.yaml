@@ -73,16 +73,13 @@ flutter:
 
 #------------------LOCAL STORAGE-------------------
   assets:
-    
-    - assets/images/
-    - assets/icons/
     - assets/logos/
-    - google_fonts/
-    - assets/images/on_boarding_images/
-    - assets/images/animations/
-    - assets/icons/categories/
-    - assets/images/products/
-    - assets/images/banners/
+    - assets/icons/brands/
     - assets/images/content/
+    - assets/images/banners/
     - assets/images/reviews/
+    - assets/images/products/
+    - assets/icons/categories/
+    - assets/images/animations/
     - assets/icons/payment_methods/
+    - assets/images/on_boarding_images/

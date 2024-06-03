@@ -31,7 +31,7 @@ class SubCategoriesScreen extends StatelessWidget {
                   // Banner
                   const RoundedImage(
                       width: double.infinity,
-                      imageUrl: TImages.promoBanner4,
+                      imageUrl: TImages.promoBanner1,
                       applyImageRadius: true),
                   const SizedBox(height: TSizes.spaceBtwItems),
                   // Sub-Categories

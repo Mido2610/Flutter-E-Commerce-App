@@ -40,7 +40,7 @@ class CheckoutController extends GetxController {
               const SizedBox(height: TSizes.spaceBtwItems / 2),
               PaymentTile(paymentMethod: PaymentMethodModel(name: 'MasterCard', image: TImages.masterCard)),
               const SizedBox(height: TSizes.spaceBtwItems / 2),
-              PaymentTile(paymentMethod: PaymentMethodModel(name: 'Paystack', image: TImages.payStack)),
+              PaymentTile(paymentMethod: PaymentMethodModel(name: 'Paystack', image: TImages.paystack)),
               const SizedBox(height: TSizes.spaceBtwItems / 2),
               PaymentTile(paymentMethod: PaymentMethodModel(name: 'Paytm', image: TImages.paytm)),
               const SizedBox(height: TSizes.spaceBtwItems / 2),

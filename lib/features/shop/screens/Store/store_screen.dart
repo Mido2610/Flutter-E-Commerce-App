@@ -25,7 +25,7 @@ class CreateStoreScreen extends StatelessWidget {
     final categories = CategoryController.instance.featuredCategories;
     final brandController = Get.put(BrandController());
     return DefaultTabController(
-      length: categories.length ,
+      length: categories.length,
       child: Scaffold(
           appBar: TAppBar(
             title: Text(
