@@ -1,13 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:waflo_admin/common/widgets/appbar/appbar.dart';
 import 'package:waflo_admin/common/widgets/list_titles/setting_menu_tile.dart';
 import 'package:waflo_admin/common/widgets/texts/section_heading.dart';
-import 'package:waflo_admin/data/repositories/banners/banner_repository.dart';
 import 'package:waflo_admin/data/repositories/categories/category_repository.dart';
 import 'package:waflo_admin/data/repositories/product/product_repository.dart';
 import 'package:waflo_admin/data/services/dummy_data.dart';
@@ -27,7 +23,6 @@ class UploadLoadDataScreen extends StatelessWidget {
     final brandController = BrandController.instance;
     final bannerController = BannerController.instance;
       final CategoryRepository categoryRepository = Get.put(CategoryRepository());
-      final BannerRepository bannerRepository = Get.put(BannerRepository());
       final ProductRepository productRepository = Get.put(ProductRepository());
 
     return Scaffold(
@@ -100,7 +95,7 @@ class UploadLoadDataScreen extends StatelessWidget {
                           title: 'Upload Banner',
                           subtitle: '',
                           onTap: () async {
-                            bannerController.uploadData();
+                            await bannerController.uploadData();
                           },
                           trailing: const Icon(Iconsax.document_upload4, color: TColors.primary),
                         );

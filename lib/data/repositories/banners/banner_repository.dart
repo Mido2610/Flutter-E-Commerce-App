@@ -7,7 +7,6 @@ import 'package:waflo_admin/utils/exceptions/firebase_exceptions.dart';
 import 'package:waflo_admin/utils/exceptions/firebase_storage_service.dart';
 import 'package:waflo_admin/utils/exceptions/format_exceptions.dart';
 import 'package:waflo_admin/utils/exceptions/platform_exceptions.dart';
-import 'package:waflo_admin/utils/popups/loaders.dart';
 
 class BannerRepository extends GetxController {
   static BannerRepository get instance => Get.find();

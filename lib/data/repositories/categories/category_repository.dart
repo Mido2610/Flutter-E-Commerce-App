@@ -7,7 +7,6 @@ import 'package:waflo_admin/features/shop/models/product_category_model.dart';
 import 'package:waflo_admin/utils/exceptions/firebase_exceptions.dart';
 import 'package:waflo_admin/utils/exceptions/firebase_storage_service.dart';
 import 'package:waflo_admin/utils/exceptions/platform_exceptions.dart';
-import 'package:waflo_admin/utils/popups/loaders.dart';
 
 class CategoryRepository extends GetxController {
   static CategoryRepository get instance => Get.find();
