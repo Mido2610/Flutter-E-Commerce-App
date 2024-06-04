@@ -48,17 +48,20 @@ class TFirebaseStorageService extends GetxController{
     }
   }
 
+  // In your ImageUploadService
+
 
   // Upload Image on Cloud Firebase Storage
   // Returns the dowload URL of the uploaded Image.
-  Future<String> uploadImageFile(String path, XFile image) async {
+  Future<String> uploadImageFile(String path, String assetPath) async {
     try {
-      final ref = _firebaseStorage.ref(path).child(image.name);
-      await ref.putFile(File(image.path));
+      final byteData = await rootBundle.load(assetPath);
+      final imageData = byteData.buffer.asUint8List();
+      final ref = _firebaseStorage.ref(path).child(assetPath.split('/').last);
+      await ref.putData(imageData);
       final url = await ref.getDownloadURL();
       return url;
     } catch (e) {
-      // Handle exceptions gracefully
       if (e is FirebaseException) {
         throw 'Firebase Exception: ${e.message}';
       } else if (e is SocketException) {

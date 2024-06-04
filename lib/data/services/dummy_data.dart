@@ -21,6 +21,7 @@ class DummyData {
     BannerModel(imageUrl: TImages.banner4, targetScreen: Routes.search, active: true),
     BannerModel(imageUrl: TImages.banner5, targetScreen: Routes.settings, active: true),
     BannerModel(imageUrl: TImages.banner6, targetScreen: Routes.userAddress, active: true),
+    BannerModel(imageUrl: TImages.banner7, targetScreen: Routes.userProfile, active: true),
     BannerModel(imageUrl: TImages.banner8, targetScreen: Routes.checkout, active: false),
   ];
 

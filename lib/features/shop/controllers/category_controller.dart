@@ -35,9 +35,6 @@ class CategoryController extends GetxController {
       //Filters featured categories
       featuredCategories.assignAll(allCategories.where((category) => category.isFeatured && category.parentId.isEmpty).take(8).toList());
 
-      // Show success message 
-      TLoaders.successSnackBar(title: 'Success', message: 'Your Categories have been uploaded successfully');
-
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     } finally {
@@ -58,6 +55,8 @@ class CategoryController extends GetxController {
       }
 
   }
+
+
 
 
   // Get Category or sub-category products

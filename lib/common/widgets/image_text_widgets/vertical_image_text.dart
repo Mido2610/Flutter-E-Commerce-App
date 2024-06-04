@@ -29,40 +29,42 @@ class VerticalImageText extends StatelessWidget {
       onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.only(right: TSizes.spaceBtwItems),
-        child: Column(
-          children: [
-            // Circle Icon
-            CircularImage(
-              image: image,
-              fit: BoxFit.fitWidth,
-              padding: TSizes.sm * 1.4,
-              isNetworkImage: isNetworkImage,
-              backgroundColor: backgroundColor,
-              overlayColor: dark ? TColors.light : TColors.dark
-            ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              // Circle Icon
+              CircularImage(
+                image: image,
+                fit: BoxFit.fitWidth,
+                padding: TSizes.sm * 1.4,
+                isNetworkImage: isNetworkImage,
+                backgroundColor: backgroundColor,
+                overlayColor: dark ? TColors.light : TColors.dark
+              ),
               Center(
                 child: Image(
-                    image: AssetImage(image),
-                    fit: BoxFit.cover,
-                    color: dark ? TColors.light : TColors.dark,
+                  image: (isNetworkImage ? NetworkImage(image) : AssetImage(image)) as ImageProvider,
+                  fit: BoxFit.cover,
+                  color: dark ? TColors.light : TColors.dark,
+                ),
               ),
-            ),
-            const SizedBox(
-              height: TSizes.spaceBtwItems / 2,
-            ),
-            SizedBox(
-              width: 55,
-              child: Text(
-                title,
-                style: Theme.of(context)
-                    .textTheme
-                    .labelMedium!
-                    .apply(color: textColor),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+              const SizedBox(
+                height: TSizes.spaceBtwItems / 2,
               ),
-            )
-          ],
+              SizedBox(
+                width: 55,
+                child: Text(
+                  title,
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelMedium!
+                      .apply(color: textColor),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

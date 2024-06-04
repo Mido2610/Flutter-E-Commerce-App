@@ -15,7 +15,7 @@ class BannerModel {
     return {
       'ImageUrl': imageUrl,
       'TargetScreen': targetScreen,
-      'Active': active,
+      'Active': active, 
     };
   }
 

@@ -24,39 +24,43 @@ class PromoSlider extends StatelessWidget {
       if (controller.banners.isEmpty) {
         return const Center(child: Text('No Data Found!'));
       } else {
-        return Column(
-          children: [
-            CarouselSlider(
-              options: CarouselOptions(
-                viewportFraction: 1,
-                onPageChanged: (index, _) =>
-                    controller.updatePageIndicator(index),
+        return SingleChildScrollView(
+          child: Column(
+            children: [
+              CarouselSlider(
+                options: CarouselOptions(
+                  viewportFraction: 1,
+                  autoPlay: true,
+                  autoPlayInterval: const Duration(seconds: 2),
+                  onPageChanged: (index, _) =>
+                      controller.updatePageIndicator(index),
+                ),
+                items: controller.banners
+                    .map((banner) => RoundedImage(
+                        imageUrl: banner.imageUrl,
+                        isNetworkImage: true,
+                        onPressed: () => Get.toNamed(banner.targetScreen)))
+                    .toList(),
               ),
-              items: controller.banners
-                  .map((banner) => RoundedImage(
-                      imageUrl: banner.imageUrl,
-                      isNetworkImage: true,
-                      onPressed: () => Get.toNamed(banner.targetScreen)))
-                  .toList(),
-            ),
-            const SizedBox(height: TSizes.spaceBtwItems),
-            Center(
-              child: Obx(
-                () => Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    for (int i = 0; i < controller.banners.length; i++)
-                      CircularContainer(
-                        width: 20,
-                        height: 4,
-                        margin: const EdgeInsets.only(right: 10),
-                        backgroundColor: controller.carousalCurrentIndex.value == i ? TColors.primary : TColors.grey,
-                      ),
-                  ],
+              const SizedBox(height: TSizes.spaceBtwItems),
+              Center(
+                child: Obx(
+                  () => Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      for (int i = 0; i < controller.banners.length; i++)
+                        CircularContainer(
+                          width: 20,
+                          height: 4,
+                          margin: const EdgeInsets.only(right: 10),
+                          backgroundColor: controller.carousalCurrentIndex.value == i ? TColors.primary : TColors.grey,
+                        ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         );
       }
     });

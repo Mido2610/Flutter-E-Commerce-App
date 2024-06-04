@@ -1,8 +1,17 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:waflo_admin/common/widgets/appbar/appbar.dart';
 import 'package:waflo_admin/common/widgets/list_titles/setting_menu_tile.dart';
 import 'package:waflo_admin/common/widgets/texts/section_heading.dart';
+import 'package:waflo_admin/data/repositories/banners/banner_repository.dart';
+import 'package:waflo_admin/data/repositories/categories/category_repository.dart';
+import 'package:waflo_admin/data/repositories/product/product_repository.dart';
+import 'package:waflo_admin/data/services/dummy_data.dart';
+import 'package:waflo_admin/features/shop/controllers/banner_controller.dart';
 import 'package:waflo_admin/features/shop/controllers/brand_controller.dart';
 import 'package:waflo_admin/features/shop/controllers/category_controller.dart';
 import 'package:waflo_admin/utils/constants/colors.dart';
@@ -10,11 +19,17 @@ import 'package:waflo_admin/utils/constants/sizes.dart';
 
 class UploadLoadDataScreen extends StatelessWidget {
   const UploadLoadDataScreen({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
     final cartController = CategoryController.instance;
     final brandController = BrandController.instance;
+    final bannerController = BannerController.instance;
+      final CategoryRepository categoryRepository = Get.put(CategoryRepository());
+      final BannerRepository bannerRepository = Get.put(BannerRepository());
+      final ProductRepository productRepository = Get.put(ProductRepository());
+
     return Scaffold(
       backgroundColor: TColors.white,
       appBar: const TAppBar(
@@ -38,39 +53,58 @@ class UploadLoadDataScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     
-                    SettingMenuTile(
-                      icon: Iconsax.category,
-                      title: 'Upload Categories',
-                      subtitle: '',
-                      onTap: () async {
-                        // await cartController.fetchCategories();
-                      },
-                      trailing: const Icon(Iconsax.document_upload4,
-                          color: TColors.primary),
+                    FutureBuilder(
+                      future: cartController.fetchCategories(),                     
+                      builder: (context, snapshot) {
+                        return SettingMenuTile(
+                          icon: Iconsax.category,
+                          title: 'Upload Categories',
+                          subtitle: '',
+                          onTap: () async {
+                            await categoryRepository.uploadDummyData(DummyData.categories);
+                            
+                          },
+                          trailing: const Icon(Iconsax.document_upload4,
+                              color: TColors.primary),
+                        );
+                      }
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
-                    SettingMenuTile(
-                      icon: Iconsax.shop,
-                      title: 'Upload Brands',
-                      subtitle: '',
-                      onTap: () async{
-                        // await brandController.getFeaturedBrands();
-                      },
-                      trailing: const Icon(Iconsax.document_upload4, color: TColors.primary),
+                    FutureBuilder(
+                      future: brandController.getFeaturedBrands(),
+                      builder: (context, snapshot) {
+                        return SettingMenuTile(
+                          icon: Iconsax.shop,
+                          title: 'Upload Brands',
+                          subtitle: '',
+                          onTap: () async{
+                          },
+                          trailing: const Icon(Iconsax.document_upload4, color: TColors.primary),
+                        );
+                      }
                     ),
                     SettingMenuTile(
                       icon: Iconsax.bag,
                       title: 'Upload Products',
                       subtitle: '',
-                      onTap: () {},
+                      onTap: () async {
+                        await productRepository.uploadDummyData(DummyData.products);
+                      },
                       trailing: const Icon(Iconsax.document_upload4, color: TColors.primary),
                     ),
-                    SettingMenuTile(
-                      icon: Iconsax.image,
-                      title: 'Upload Banners',
-                      subtitle: '',
-                      onTap: () {},
-                      trailing: const Icon(Iconsax.document_upload4, color: TColors.primary),
+                    FutureBuilder(
+                      future: bannerController.fetchBanners(),
+                      builder: (context, snapshot) {
+                        return SettingMenuTile(
+                          icon: Iconsax.shop,
+                          title: 'Upload Banner',
+                          subtitle: '',
+                          onTap: () async {
+                            bannerController.uploadData();
+                          },
+                          trailing: const Icon(Iconsax.document_upload4, color: TColors.primary),
+                        );
+                      }
                     ),
                     const SizedBox(height: TSizes.spaceBtwSections),
                     const SectionHeadingBar(
@@ -106,4 +140,8 @@ class UploadLoadDataScreen extends StatelessWidget {
       ),
     );
   }
+  
 }
+
+
+

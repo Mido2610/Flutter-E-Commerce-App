@@ -31,8 +31,6 @@ class BrandController extends GetxController {
 
       featureBrands.assignAll(allBrands.where((brand) => brand.isFeatured ?? false).take(3));
 
-      // show success message
-      TLoaders.successSnackBar(title: 'Success', message: 'Your Brands have been uploaded successfully');
 
      } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
