@@ -65,19 +65,15 @@ class UploadLoadDataScreen extends StatelessWidget {
                       }
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
-                    FutureBuilder(
-                      future: brandController.getFeaturedBrands(),
-                      builder: (context, snapshot) {
-                        return SettingMenuTile(
+                        SettingMenuTile(
                           icon: Iconsax.shop,
                           title: 'Upload Brands',
                           subtitle: '',
                           onTap: () async{
+                            await brandController.uploadBrands();
                           },
                           trailing: const Icon(Iconsax.document_upload4, color: TColors.primary),
-                        );
-                      }
-                    ),
+                        ),
                     SettingMenuTile(
                       icon: Iconsax.bag,
                       title: 'Upload Products',

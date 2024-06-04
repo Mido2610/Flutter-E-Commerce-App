@@ -25,7 +25,7 @@ class BrandModel {
   }
 
   // Convert Model to Json structure so that you can store data in Firebase
-  toJSon(){
+  Map<String, dynamic> toJson() {
     return {
       'Id': id,
       'Name': name,
@@ -33,6 +33,11 @@ class BrandModel {
       'IsFeatured': isFeatured,
       'ProductsCount': productsCount,
     };
+  }
+
+  // có thể giữ nguyên phương thức toJSon để hạn chế ảnh hưởng đến các tệp khác
+  Map<String, dynamic> toJSon() {
+    return toJson();
   }
 
   // Map Json oriented document snapshot from firebase to Usermodel

@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:waflo_admin/data/repositories/brand/brand_repository.dart';
 import 'package:waflo_admin/data/repositories/product/product_repository.dart';
+import 'package:waflo_admin/data/services/dummy_data.dart';
 import 'package:waflo_admin/features/shop/models/brand_model.dart';
 import 'package:waflo_admin/features/shop/models/product_model.dart';
 import 'package:waflo_admin/utils/popups/loaders.dart';
@@ -29,7 +30,7 @@ class BrandController extends GetxController {
 
       allBrands .assignAll(brands);
 
-      featureBrands.assignAll(allBrands.where((brand) => brand.isFeatured ?? false).take(3));
+      featureBrands.assignAll(allBrands.where((brand) => brand.isFeatured ?? false).take(4));
 
 
      } catch (e) {
@@ -48,6 +49,20 @@ class BrandController extends GetxController {
       return [];
     }
   }
+
+      Future<void> uploadBrands() async {
+        try {
+          isLoading.value = true;
+          for (var brand in DummyData.brands) {
+            await brandRepository.uploadBrandData(brand);
+          }
+          TLoaders.successSnackBar(title: 'Success', message: 'All brands uploaded successfully.');
+        } catch (e) {
+          TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+        } finally {
+          isLoading.value = false;
+        }
+      }
 
   // Get Brand Specific products from your data source
   Future<List<ProductModel>> getBrandProducts ({required String brandId, int limit = -1}) async{
