@@ -50,19 +50,19 @@ class BrandController extends GetxController {
     }
   }
 
-      Future<void> uploadBrands() async {
-        try {
-          isLoading.value = true;
-          for (var brand in DummyData.brands) {
-            await brandRepository.uploadBrandData(brand);
-          }
-          TLoaders.successSnackBar(title: 'Success', message: 'All brands uploaded successfully.');
-        } catch (e) {
-          TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
-        } finally {
-          isLoading.value = false;
-        }
+  Future<void> uploadBrandToFireBase() async {
+    try {
+      isLoading.value = true;
+      for (var brand in DummyData.brands) {
+        await brandRepository.uploadBrandData(brand);
       }
+      TLoaders.successSnackBar(title: 'Success', message: 'All brands uploaded successfully.');
+    } catch (e) {
+      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+    } finally {
+      isLoading.value = false;
+    }
+  }
 
   // Get Brand Specific products from your data source
   Future<List<ProductModel>> getBrandProducts ({required String brandId, int limit = -1}) async{

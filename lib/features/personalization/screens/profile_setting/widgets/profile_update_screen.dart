@@ -51,7 +51,7 @@ class UploadLoadDataScreen extends StatelessWidget {
                           title: 'Upload Categories',
                           subtitle: '',
                           onTap: () async {
-                            await categoryController.uploadCategory();
+                            await categoryController.uploadCategoryToFireBase();
                             
                           },
                           trailing: const Icon(Iconsax.document_upload4,
@@ -63,7 +63,7 @@ class UploadLoadDataScreen extends StatelessWidget {
                           title: 'Upload Brands',
                           subtitle: '',
                           onTap: () async{
-                            await brandController.uploadBrands();
+                            await brandController.uploadBrandToFireBase();
                           },
                           trailing: const Icon(Iconsax.document_upload4, color: TColors.primary),
                         ),

@@ -46,7 +46,7 @@ class CategoryController extends GetxController {
   
   // Upload dummy data for category
  
-  Future<void> uploadCategory() async {
+  Future<void> uploadCategoryToFireBase() async {
     try {
       isLoading.value = true;
         await _categoryRepository.uploadDummyData(DummyData.categories);
