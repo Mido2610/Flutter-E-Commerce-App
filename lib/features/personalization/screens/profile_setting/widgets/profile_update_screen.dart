@@ -4,7 +4,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:waflo_admin/common/widgets/appbar/appbar.dart';
 import 'package:waflo_admin/common/widgets/list_titles/setting_menu_tile.dart';
 import 'package:waflo_admin/common/widgets/texts/section_heading.dart';
-import 'package:waflo_admin/data/repositories/categories/category_repository.dart';
 import 'package:waflo_admin/data/repositories/product/product_repository.dart';
 import 'package:waflo_admin/data/services/dummy_data.dart';
 import 'package:waflo_admin/features/shop/controllers/banner_controller.dart';
@@ -19,10 +18,9 @@ class UploadLoadDataScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cartController = CategoryController.instance;
+    final categoryController = CategoryController.instance;
     final brandController = BrandController.instance;
     final bannerController = BannerController.instance;
-      final CategoryRepository categoryRepository = Get.put(CategoryRepository());
       final ProductRepository productRepository = Get.put(ProductRepository());
 
     return Scaffold(
@@ -48,22 +46,17 @@ class UploadLoadDataScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     
-                    FutureBuilder(
-                      future: cartController.fetchCategories(),                     
-                      builder: (context, snapshot) {
-                        return SettingMenuTile(
+                        SettingMenuTile(
                           icon: Iconsax.category,
                           title: 'Upload Categories',
                           subtitle: '',
                           onTap: () async {
-                            await categoryRepository.uploadDummyData(DummyData.categories);
+                            await categoryController.uploadCategory();
                             
                           },
                           trailing: const Icon(Iconsax.document_upload4,
                               color: TColors.primary),
-                        );
-                      }
-                    ),
+                        ),             
                     const SizedBox(height: TSizes.spaceBtwItems),
                         SettingMenuTile(
                           icon: Iconsax.shop,

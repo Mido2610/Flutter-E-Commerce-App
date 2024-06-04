@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:waflo_admin/data/repositories/categories/category_repository.dart';
 import 'package:waflo_admin/data/repositories/product/product_repository.dart';
+import 'package:waflo_admin/data/services/dummy_data.dart';
 import 'package:waflo_admin/features/shop/models/category_model.dart';
 import 'package:waflo_admin/features/shop/models/product_model.dart';
 import 'package:waflo_admin/utils/popups/loaders.dart';
@@ -39,6 +40,21 @@ class CategoryController extends GetxController {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     } finally {
       // Remove loader
+      isLoading.value = false;
+    }
+  }
+  
+  // Upload dummy data for category
+ 
+  Future<void> uploadCategory() async {
+    try {
+      isLoading.value = true;
+        await _categoryRepository.uploadDummyData(DummyData.categories);
+      TLoaders.successSnackBar(
+          title: 'Success', message: 'All Categories uploaded successfully.');
+    } catch (e) {
+      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+    } finally {
       isLoading.value = false;
     }
   }
