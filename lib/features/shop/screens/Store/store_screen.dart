@@ -30,7 +30,11 @@ class CreateStoreScreen extends StatelessWidget {
           appBar: TAppBar(
             title: Text(
               'Store',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: Theme.of(context).textTheme.headlineMedium!.apply(
+                    color: THelperFunctions.isDarkMode(context)
+                        ? Colors.black
+                        : Colors.white,
+                  ),
             ),
             actions: [
               CartCounterIcon(
