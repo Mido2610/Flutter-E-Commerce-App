@@ -85,6 +85,17 @@ class CategoryController extends GetxController {
     }
   }
 
-  // Get Brand Products
-  
+  // Upload dummy data for product categories
+  Future<void> uploadProductCategoryToFirebase() async {
+    try {
+      isLoading.value = true;
+      await _categoryRepository.uploadProductCategoryDummyData(DummyData.productCategoies);
+      TLoaders.successSnackBar(title: 'Success', message: 'All Product Categories uploaded successfully.');
+    } catch (e) {
+      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
 }

@@ -73,6 +73,20 @@ class CategoryRepository extends GetxController {
   }
 
   // Upload Categories to the Cloud Firebase with dummy data
-  Future<void> uploadProductCategoryDummyData(List<ProductCategoryModel> productCategory) async {
+  // Upload ProductCategory data to the Cloud Firebase with dummy data
+  Future<void> uploadProductCategoryDummyData(List<ProductCategoryModel> productCategories) async {
+    try {
+      // Loop through each product category
+      for (var productCategory in productCategories) {
+        // Store product category in Firestore
+        await _db.collection("ProductCategories").add(productCategory.toJson());
+      }
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again.';
+    }
   }
 }
