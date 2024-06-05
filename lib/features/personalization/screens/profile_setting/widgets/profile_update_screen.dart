@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:waflo_admin/common/widgets/appbar/appbar.dart';
 import 'package:waflo_admin/common/widgets/list_titles/setting_menu_tile.dart';
 import 'package:waflo_admin/common/widgets/texts/section_heading.dart';
-import 'package:waflo_admin/data/repositories/product/product_repository.dart';
 import 'package:waflo_admin/data/services/dummy_data.dart';
 import 'package:waflo_admin/features/shop/controllers/banner_controller.dart';
 import 'package:waflo_admin/features/shop/controllers/brand_controller.dart';
 import 'package:waflo_admin/features/shop/controllers/category_controller.dart';
+import 'package:waflo_admin/features/shop/controllers/product/product_controller.dart';
 import 'package:waflo_admin/utils/constants/colors.dart';
 import 'package:waflo_admin/utils/constants/sizes.dart';
 
@@ -21,8 +20,7 @@ class UploadLoadDataScreen extends StatelessWidget {
     final categoryController = CategoryController.instance;
     final brandController = BrandController.instance;
     final bannerController = BannerController.instance;
-      final ProductRepository productRepository = Get.put(ProductRepository());
-
+    final productController = ProductController.instance;
     return Scaffold(
       backgroundColor: TColors.white,
       appBar: const TAppBar(
@@ -72,7 +70,7 @@ class UploadLoadDataScreen extends StatelessWidget {
                       title: 'Upload Products',
                       subtitle: '',
                       onTap: () async {
-                        await productRepository.uploadDummyData(DummyData.products);
+                        await productController.uploadProductToFireBase(DummyData.products);
                       },
                       trailing: const Icon(Iconsax.document_upload4, color: TColors.primary),
                     ),

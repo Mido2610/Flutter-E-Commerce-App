@@ -73,8 +73,6 @@ class CategoryController extends GetxController {
   }
 
 
-
-
   // Get Category or sub-category products
   Future<List<ProductModel>> getCategoryProducts({required String categoryId, int limit = 4}) async {
     try {
@@ -86,4 +84,7 @@ class CategoryController extends GetxController {
       return [];
     }
   }
+
+  // Get Brand Products
+  
 }

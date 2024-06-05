@@ -33,18 +33,31 @@ class ProductController extends GetxController {
       isLoading.value = false;
     }
   }
+  
 
   Future<List<ProductModel>> fetchAllFeaturedProducts() async {
     try {
 
       // Fetch Products from data source(Firestore, API, etc,..)
-      final products = await productRepository.getfeaturedProducts();
+      final products = await productRepository.getAllfeaturedProducts();
       return products;
 
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
       return [];
     } 
+  }
+  // Upload Product to the database
+  uploadProductToFireBase(List<ProductModel> products) async {
+    try {
+      isLoading.value = true;
+      await productRepository.uploadDummyData(products);
+      TLoaders.successSnackBar(title: 'Success', message: 'Products uploaded successfully');
+    } catch (e) {
+      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+    } finally {
+      isLoading.value = false;
+    }
   }
 
   /// Get the product price or price range for variation
