@@ -81,9 +81,7 @@ class ProductImageSlider extends StatelessWidget {
 
             TAppBar(
               showBackArrow: true,
-              actions: [
-                FavouriteIcon(productId: product.id),
-              ],
+              actions: [FavouriteIcon(productId: product.id)],
             )
           ],
         ),

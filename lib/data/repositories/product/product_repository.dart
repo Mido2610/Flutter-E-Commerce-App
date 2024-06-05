@@ -56,7 +56,7 @@ class ProductRepository extends GetxController {
     }
   }
 
-  Future<List<ProductModel>> getFavouriteProducts(List<String> productIds) async{
+  Future<List<ProductModel>> getFavouriteProducts(List<String> productIds) async {
     try {
       final snapshot = await _db.collection('Products').where(FieldPath.documentId, whereIn: productIds).get();
       return snapshot.docs.map((querySnapshot) => ProductModel.fromSnapshot(querySnapshot)).toList();

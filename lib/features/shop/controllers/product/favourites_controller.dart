@@ -30,19 +30,23 @@ class FavouritesController extends GetxController {
     return favourites[productId] ?? false;
   }
 
-  void toggleFavouriteProduct (String productId) {
-    if(favourites.containsKey(productId)){
-      favourites[productId] = true;
-      saveFavouritesToStorage();
-      TLoaders.customToast(message: 'Products has been added to your favourites');
+void toggleFavouriteProduct(String productId) {
+    if (favourites.containsKey(productId) && favourites[productId] == true) {
+        // Nếu sản phẩm đã có trong danh sách yêu thích và đang được đánh dấu là yêu thích,
+        // thì xóa sản phẩm khỏi danh sách yêu thích
+        favourites[productId] = false;
+        TLocalStorage.instance().removeData(productId);
+        favourites.remove(productId);
+        TLoaders.customToast(message: 'Product has been removed from your favourites');
     } else {
-      TLocalStorage.instance().removeData(productId);
-      favourites.remove(productId);
-      saveFavouritesToStorage();
-      favourites.refresh();
-      TLoaders.customToast(message: 'Products has been removed from your favourites');
+        // Nếu sản phẩm không có trong danh sách yêu thích hoặc đang không được đánh dấu là yêu thích,
+        // thì thêm sản phẩm vào danh sách yêu thích
+        favourites[productId] = true;
+        TLoaders.customToast(message: 'Product has been added to the Wishlist');
     }
-  }
+    saveFavouritesToStorage();
+    favourites.refresh();
+}
 
   void saveFavouritesToStorage() {
     final encodedFavourites = json.encode(favourites);
@@ -50,6 +54,7 @@ class FavouritesController extends GetxController {
   }
 
   Future<List<ProductModel>> favouriteProducts() async {
+    if (favourites.isEmpty) return [];
     return await ProductRepository.instance.getFavouriteProducts(favourites.keys.toList());
   }
 }
