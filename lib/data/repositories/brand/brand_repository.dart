@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:waflo_admin/features/shop/models/brand_category_model.dart';
 import 'package:waflo_admin/features/shop/models/brand_model.dart';
 import 'package:waflo_admin/utils/exceptions/firebase_exceptions.dart';
 import 'package:waflo_admin/utils/exceptions/firebase_storage_service.dart';
@@ -66,6 +67,26 @@ class BrandRepository extends GetxController {
       List<BrandModel> brands = brandsQuery.docs.map((doc) => BrandModel.fromSnapshot(doc)).toList();
       return brands;
 
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again.';
+    }
+  }
+
+  //Upload brand for category data
+  Future<void> uploadBrandCategoryData(List<BrandCategoryModel> brandCategories) async {
+    try {
+      final batch = _db.batch();
+      for (var brandCategory in brandCategories) {
+        final docRef = _db.collection('BrandCategory').doc();
+        batch.set(docRef, brandCategory.toJson());
+      }
+      await batch.commit();
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {

@@ -28,7 +28,7 @@ class PaymentTile extends StatelessWidget {
         height: 40,
         backgroundColor: dark ? TColors.light : TColors.white,
         padding: const EdgeInsets.all(TSizes.sm),
-        child: Image(image: AssetImage(paymentMethod.image), fit: BoxFit.contain),
+        child: Image(image: NetworkImage(paymentMethod.image), fit: BoxFit.contain),
       ),
       title: Text(paymentMethod.name),
       trailing: const Icon(Iconsax.arrow_right_34),

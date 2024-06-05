@@ -14,10 +14,12 @@ class BrandShowCase extends StatelessWidget {
     super.key,
     required this.images,
     required this.brand,
+    this.isNetworkImage = true,
   });
 
   final List<String> images;
   final BrandModel brand;
+  final bool isNetworkImage;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +52,11 @@ class BrandShowCase extends StatelessWidget {
       margin: const EdgeInsets.only(right: TSizes.sm),
       padding: const EdgeInsets.all(TSizes.md),
       backgroundColor: THelperFunctions.isDarkMode(context) ? TColors.darkGrey : TColors.light,
-      child: Image(fit: BoxFit.contain, image: AssetImage(image),
+      child: Image(
+        fit: BoxFit.contain,
+        image: isNetworkImage
+            ? NetworkImage(image)
+            : AssetImage(image) as ImageProvider,
       ),
     ));
   }

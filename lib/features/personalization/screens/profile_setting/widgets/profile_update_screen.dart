@@ -21,6 +21,7 @@ class UploadLoadDataScreen extends StatelessWidget {
     final brandController = BrandController.instance;
     final bannerController = BannerController.instance;
     final productController = ProductController.instance;
+    final brandCategoryController = BrandController.instance;
     return Scaffold(
       backgroundColor: TColors.white,
       appBar: const TAppBar(
@@ -103,7 +104,9 @@ class UploadLoadDataScreen extends StatelessWidget {
                       icon: Iconsax.link,
                       title: 'Upload Brands & Categories Relation Data',
                       subtitle: '',
-                      onTap: () {},
+                      onTap: () async {
+                        await brandCategoryController.uploadBrandCategoryToFireBase();
+                      },
                       trailing: const Icon(Iconsax.document_upload4, color: TColors.primary),
                     ),
                     SettingMenuTile(
