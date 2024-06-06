@@ -89,7 +89,7 @@ class CategoryController extends GetxController {
   Future<void> uploadProductCategoryToFirebase() async {
     try {
       isLoading.value = true;
-      await _categoryRepository.uploadProductCategoryDummyData(DummyData.productCategoies);
+      await _categoryRepository.uploadProductCategoryDummyData(DummyData.productCategories);
       TLoaders.successSnackBar(title: 'Success', message: 'All Product Categories uploaded successfully.');
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
