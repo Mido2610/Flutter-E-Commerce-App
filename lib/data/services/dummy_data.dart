@@ -144,6 +144,7 @@ class DummyData {
     ProductCategoryModel(productId: '009', categoryId: '8'),
     ProductCategoryModel(productId: '010', categoryId: '1'),
     ProductCategoryModel(productId: '010', categoryId: '8'),
+    ProductCategoryModel(productId: '010', categoryId: '3'),
     ProductCategoryModel(productId: '011', categoryId: '1'),
     ProductCategoryModel(productId: '011', categoryId: '8'),
     ProductCategoryModel(productId: '012', categoryId: '1'),
@@ -413,7 +414,7 @@ class DummyData {
       ],    
       productType: 'ProductType.single'  
     ),
-          ProductModel(
+      ProductModel(
       id: '008',
       title: 'Adidas Running Shoes',
       stock: 20,
@@ -479,7 +480,7 @@ class DummyData {
       images: [TImages.productImage14, TImages.productImage15, TImages.productImage16],
       thumbnail: TImages.productImage14,
       description: 'High quality Sony headphones with noise cancellation.',
-      brand: BrandModel(id: '4', image: TImages.appleLogo, name: 'Sony'),
+      brand: BrandModel(id: '5', image: TImages.appleLogo, name: 'Sony'),
       salePrice: 130,
       sku: 'SONY456',
       categoryId: '2',
@@ -489,14 +490,15 @@ class DummyData {
       productType: 'ProductType.single',
     ),
     ProductModel(
-    id: '010',
+    id: '011',
     title: 'Apple MacBook Pro 16',
     stock: 20,
     price: 2500,
+    isFeatured: true,
     thumbnail: TImages.productImage47,
     images: [TImages.productImage47, TImages.productImage48, TImages.productImage49, TImages.productImage50],
     description: 'Apple MacBook Pro 16-inch with M1 Max chip, 32GB RAM, and 1TB SSD.',
-    brand: BrandModel(id: '8', image: TImages.appleLogo, name: 'Apple'),
+    brand: BrandModel(id: '7', image: TImages.appleLogo, name: 'Apple'),
     salePrice: 2400,
     sku: 'MBP16M1',
     categoryId: '3',
@@ -504,11 +506,31 @@ class DummyData {
       ProductAttributeModel(name: 'Color', values: ['Silver', 'Space Grey']),
       ProductAttributeModel(name: 'Storage', values: ['512GB', '1TB', '2TB']),
     ],
-    productType: 'ProductType.single',
+    productVariations: [
+        ProductVariationModel(
+          id: '1',
+          stock: 10,
+          price: 120,
+          salePrice: 100,
+          image: TImages.productImage47,
+          description: 'Apple MacBook Pro 16.',
+          attributeValues: {'Color': 'Black'}
+        ),
+        ProductVariationModel(
+          id: '2',
+          stock: 10,
+          price: 120,
+          salePrice: 100,
+          image: TImages.productImage49,
+          description: 'Orange Jordan Running Shoes.',
+          attributeValues: {'Color': 'Orange'}
+        ),
+      ],
+    productType: 'ProductType.variable',
     ),
     // Animal
   ProductModel(
-    id: '011',
+    id: '012',
     title: 'Whiskas Cat Food',
     stock: 50,
     price: 25,
@@ -527,7 +549,7 @@ class DummyData {
   ),
    // Clothes
   ProductModel(
-    id: '012',
+    id: '013',
     title: 'Adidas Running T-Shirt',
     stock: 30,
     price: 45,
@@ -547,7 +569,7 @@ class DummyData {
   ),
    // Furniture
   ProductModel(
-    id: '013',
+    id: '014',
     title: 'IKEA Office Chair',
     stock: 25,
     price: 120,
@@ -566,11 +588,11 @@ class DummyData {
     productType: 'ProductType.single',
     ),
     ProductModel(
-    id: '014',
+    id: '015',
     title: 'Adidas Ultraboost 21',
     stock: 15,
     price: 180,
-    isFeatured: false,
+    isFeatured: true,
     thumbnail: TImages.productImage21,
     images: [TImages.productImage21, TImages.productImage22, TImages.productImage23],
     description: 'Adidas Ultraboost 21 running shoes for men, designed for ultimate comfort and performance.',
@@ -596,5 +618,84 @@ class DummyData {
     ],
     productType: 'ProductType.variable',
   ),
+
+  ProductModel(
+      id: '016',
+      title: 'Jordan Running Shoes',
+      stock: 20,
+      price: 120,
+      isFeatured: true,
+      thumbnail: TImages.productImage7,
+      images: [TImages.productImage7, TImages.productImage8, TImages.productImage9],
+      description: 'Adidas Running Shoes for comfort and performance.',
+      brand: BrandModel(id: '3', image: TImages.jordanLogo, name: 'Jordan', productsCount: 190),
+      salePrice: 100,
+      sku: 'AD1234',
+      categoryId: '1',
+      productAttributes: [
+        ProductAttributeModel(name: 'Size', values: ['EU 40', 'EU 42', 'EU 44']),
+        ProductAttributeModel(name: 'Color', values: ['Black', 'White']),
+      ],
+      productVariations: [
+        ProductVariationModel(
+          id: '1',
+          stock: 10,
+          price: 120,
+          salePrice: 100,
+          image: TImages.productImage7,
+          description: 'Black Adidas Running Shoes.',
+          attributeValues: {'Color': 'Black', 'Size': 'EU 42'}
+        ),
+        ProductVariationModel(
+          id: '2',
+          stock: 10,
+          price: 120,
+          salePrice: 100,
+          image: TImages.productImage8,
+          description: 'Orange Jordan Running Shoes.',
+          attributeValues: {'Color': 'Orange', 'Size': 'EU 44'}
+        ),
+      ],
+      productType: 'ProductType.variable',
+    ),
+      ProductModel(
+      id: '017',
+      title: 'TrackSuit',
+      stock: 20,
+      price: 120,
+      isFeatured: true,
+      thumbnail: TImages.productImage24,
+      images: [TImages.productImage24, TImages.productImage25, TImages.productImage26],
+      description: 'Adidas Running Shoes for comfort and performance.',
+      brand: BrandModel(id: '3', image: TImages.jordanLogo, name: 'Jordan', productsCount: 190),
+      salePrice: 100,
+      sku: 'AD1234',
+      categoryId: '1',
+      productAttributes: [
+        ProductAttributeModel(name: 'Size', values: ['EU 40', 'EU 42', 'EU 44']),
+        ProductAttributeModel(name: 'Color', values: ['Black', 'White']),
+      ],
+      productVariations: [
+        ProductVariationModel(
+          id: '1',
+          stock: 10,
+          price: 120,
+          salePrice: 100,
+          image: TImages.productImage7,
+          description: 'Black Adidas Running Shoes.',
+          attributeValues: {'Color': 'Black', 'Size': 'EU 42'}
+        ),
+        ProductVariationModel(
+          id: '2',
+          stock: 10,
+          price: 120,
+          salePrice: 100,
+          image: TImages.productImage8,
+          description: 'Orange Jordan Running Shoes.',
+          attributeValues: {'Color': 'Orange', 'Size': 'EU 44'}
+        ),
+      ],
+      productType: 'ProductType.variable',
+    ),  
   ]; 
 }

@@ -5,7 +5,6 @@ import 'package:waflo_admin/features/shop/controllers/category_controller.dart';
 
 import '../../../../../common/widgets/image_text_widgets/vertical_image_text.dart';
 import '../../../../../utils/constants/colors.dart';
-import '../../sub_category/sub_categories.dart';
 
 class HomeCategories extends StatelessWidget {
   const HomeCategories({super.key});
@@ -31,7 +30,7 @@ class HomeCategories extends StatelessWidget {
               return VerticalImageText(
                 image: category.image,
                 title: category.name,
-                onTap: () => Get.to(() => SubCategoriesScreen(category: category)),
+                // onTap: () => Get.to(() => SubCategoriesScreen(category: category)),
                 backgroundColor: TColors.white,
               );
             }),

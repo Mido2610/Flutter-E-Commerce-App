@@ -66,7 +66,7 @@ class CategoryController extends GetxController {
         final subCategories = await _categoryRepository.getSubCategories(categoryId);
         return subCategories;
       } catch (e) {
-        TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+        // TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
         return [];
       }
 
@@ -80,7 +80,7 @@ class CategoryController extends GetxController {
     final products = await ProductRepository.instance.getProductsForCategory(categoryId: categoryId, limit: limit);
     return products;
     } catch (e) {
-      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+      // TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
       return [];
     }
   }
